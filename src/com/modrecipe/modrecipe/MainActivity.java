@@ -2,6 +2,8 @@ package com.modrecipe.modrecipe;
 
 import java.util.Locale;
 
+import com.modrecipe.modrecipe.tabs.*;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -62,7 +64,26 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 actionBar.setSelectedNavigationItem(position);
             }
         });
-
+        
+        /**
+        actionBar.addTab(
+                actionBar.newTab()
+                        .setText("search".toUpperCase())
+                        .setTabListener(this));
+        actionBar.addTab(
+                actionBar.newTab()
+                        .setText("meals".toUpperCase())
+                        .setTabListener(this));
+        actionBar.addTab(
+                actionBar.newTab()
+                        .setText("list".toUpperCase())
+                        .setTabListener(this));
+        actionBar.addTab(
+                actionBar.newTab()
+                        .setText("social".toUpperCase())
+                        .setTabListener(this));
+        */
+        
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
             // Create a tab with text corresponding to the page title defined by
@@ -109,21 +130,35 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
 
         @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a DummySectionFragment (defined as a static inner class
-            // below) with the page number as its lone argument.
-            Fragment fragment = new DummySectionFragment();
+        public Fragment getItem(int i) {
+        	Fragment fragment = new DummySectionFragment();
             Bundle args = new Bundle();
-            args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-            fragment.setArguments(args);
-            return fragment;
+            	
+          	switch (i) {
+           		case 0: fragment = new SearchSectionFragment();
+           				args.putInt(SearchSectionFragment.ARG_SECTION_NUMBER, i + 1);
+           				fragment.setArguments(args);
+           				return fragment;
+           		case 1: fragment = new MealsSectionFragment();
+           				args.putInt(MealsSectionFragment.ARG_SECTION_NUMBER, i + 1);
+           				fragment.setArguments(args);
+           				return fragment;
+           		case 2: fragment = new ListSectionFragment();
+           				args.putInt(ListSectionFragment.ARG_SECTION_NUMBER, i + 1);
+           				fragment.setArguments(args);
+           				return fragment;
+           		case 3: fragment = new SocialSectionFragment();
+           				args.putInt(SocialSectionFragment.ARG_SECTION_NUMBER, i + 1);
+           				fragment.setArguments(args);
+           				return fragment;
+           				default : return fragment; 
+           	}
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 4 total pages.
+            return 4;
         }
 
         @Override
@@ -136,32 +171,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     return getString(R.string.title_section2).toUpperCase(l);
                 case 2:
                     return getString(R.string.title_section3).toUpperCase(l);
+                case 3:
+                    return getString(R.string.title_section4).toUpperCase(l);
             }
             return null;
-        }
-    }
-
-    /**
-     * A dummy fragment representing a section of the app, but that simply
-     * displays dummy text.
-     */
-    public static class DummySectionFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        public static final String ARG_SECTION_NUMBER = "section_number";
-
-        public DummySectionFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
-            TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-            dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
         }
     }
 
