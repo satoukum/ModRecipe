@@ -7,5 +7,11 @@
     <string name="title_section2">MEALS</string>
     <string name="title_section3">LIST</string>
     <string name="title_section4">SOCIAL</string>
-
+    
+    <string name="menu_options">Options</string>
+    <string name="option1">Option1</string>
+    <string name="option2">Option2</string>
+    <string name="option3">Option3</string>
+    
+    
 </resources>

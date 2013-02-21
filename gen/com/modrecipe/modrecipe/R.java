@@ -14,7 +14,10 @@ public final class R {
         public static final int black=0x7f040001;
         public static final int green=0x7f040002;
         public static final int grey=0x7f040004;
-        public static final int pressed_green=0x7f040005;
+        public static final int lightgrey=0x7f040005;
+        public static final int lightgrey2=0x7f040006;
+        public static final int lightgrey3=0x7f040007;
+        public static final int pressed_green=0x7f040008;
         public static final int transparent=0x7f040000;
         public static final int white=0x7f040003;
     }
@@ -33,37 +36,61 @@ public final class R {
         public static final int ab_solid_green=0x7f020001;
         public static final int ab_stacked_solid_green=0x7f020002;
         public static final int ab_transparent_green=0x7f020003;
-        public static final int green=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int list_focused_green=0x7f020006;
-        public static final int menu_dropdown_panel_green=0x7f020007;
-        public static final int menu_hardkey_panel_green=0x7f020008;
-        public static final int pressed_background_green=0x7f020009;
-        public static final int progress_bg_green=0x7f02000a;
-        public static final int progress_horizontal_green=0x7f02000b;
-        public static final int progress_primary_green=0x7f02000c;
-        public static final int progress_secondary_green=0x7f02000d;
-        public static final int selectable_background_green=0x7f02000e;
-        public static final int spinner_ab_default_green=0x7f02000f;
-        public static final int spinner_ab_disabled_green=0x7f020010;
-        public static final int spinner_ab_focused_green=0x7f020011;
-        public static final int spinner_ab_pressed_green=0x7f020012;
-        public static final int spinner_background_ab_green=0x7f020013;
-        public static final int tab_indicator_ab_green=0x7f020014;
-        public static final int tab_selected_focused_green=0x7f020015;
-        public static final int tab_selected_green=0x7f020016;
-        public static final int tab_selected_pressed_green=0x7f020017;
-        public static final int tab_unselected_focused_green=0x7f020018;
-        public static final int tab_unselected_pressed_green=0x7f020019;
+        public static final int black_options=0x7f020004;
+        public static final int green=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int icon_add=0x7f020007;
+        public static final int icon_clear=0x7f020008;
+        public static final int icon_edit=0x7f020009;
+        public static final int icon_past=0x7f02000a;
+        public static final int icon_search=0x7f02000b;
+        public static final int list_focused_green=0x7f02000c;
+        public static final int menu_dropdown_panel_green=0x7f02000d;
+        public static final int menu_hardkey_panel_green=0x7f02000e;
+        public static final int pressed_background_green=0x7f02000f;
+        public static final int progress_bg_green=0x7f020010;
+        public static final int progress_horizontal_green=0x7f020011;
+        public static final int progress_primary_green=0x7f020012;
+        public static final int progress_secondary_green=0x7f020013;
+        public static final int selectable_background_green=0x7f020014;
+        public static final int spinner_ab_default_green=0x7f020015;
+        public static final int spinner_ab_disabled_green=0x7f020016;
+        public static final int spinner_ab_focused_green=0x7f020017;
+        public static final int spinner_ab_pressed_green=0x7f020018;
+        public static final int spinner_background_ab_green=0x7f020019;
+        public static final int tab_indicator_ab_green=0x7f02001a;
+        public static final int tab_selected_focused_green=0x7f02001b;
+        public static final int tab_selected_green=0x7f02001c;
+        public static final int tab_selected_pressed_green=0x7f02001d;
+        public static final int tab_unselected_focused_green=0x7f02001e;
+        public static final int tab_unselected_pressed_green=0x7f02001f;
     }
     public static final class id {
-        public static final int action_settings=0x7f090002;
+        public static final int action_settings=0x7f090009;
+        public static final int addBtn=0x7f090001;
+        public static final int bottom_bar_search=0x7f090008;
+        public static final int clearBtn=0x7f090002;
+        public static final int gridview=0x7f090007;
+        public static final int menuitem_options=0x7f09000a;
+        public static final int option1=0x7f09000b;
+        public static final int option2=0x7f09000c;
+        public static final int option3=0x7f09000d;
         public static final int pager=0x7f090000;
-        public static final int section_label=0x7f090001;
+        public static final int pastBtn=0x7f090003;
+        public static final int searchBtn=0x7f090006;
+        public static final int searchEditText=0x7f090005;
+        public static final int section_label=0x7f090004;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int fragment_main_dummy=0x7f030001;
+        public static final int bottom_bar_list=0x7f030001;
+        public static final int bottom_bar_meals=0x7f030002;
+        public static final int bottom_bar_search=0x7f030003;
+        public static final int fragment_list=0x7f030004;
+        public static final int fragment_main_dummy=0x7f030005;
+        public static final int fragment_meals=0x7f030006;
+        public static final int fragment_search=0x7f030007;
+        public static final int fragment_social=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -71,6 +98,10 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int menu_options=0x7f060006;
+        public static final int option1=0x7f060007;
+        public static final int option2=0x7f060008;
+        public static final int option3=0x7f060009;
         public static final int title_section1=0x7f060002;
         public static final int title_section2=0x7f060003;
         public static final int title_section3=0x7f060004;

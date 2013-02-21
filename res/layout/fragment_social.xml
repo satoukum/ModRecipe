@@ -8,10 +8,5 @@
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-    <include 
-        android:layout_width="wrap_content" 
-        android:layout_alignParentBottom="true"
-        layout="@layout/bottom_bar_meals" />
     
 </RelativeLayout>

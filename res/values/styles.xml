@@ -32,7 +32,7 @@
         <!--<item name="android:listChoiceIndicatorSingle">@drawable/ad_btn_radio_holo_light</item>-->        
         
     </style>
-    
+        
     <!-- Modify the text color -->
 	<style name="TabStyle" parent="android:Widget.Holo.Light.ActionBar.TabText.Inverse">
     	<item name="android:textColor">@color/black</item>

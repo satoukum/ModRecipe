@@ -4,6 +4,22 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
+        android:title="@string/action_settings"/>    
+        
+	<item android:id="@+id/menuitem_options"
+        android:title="@string/menu_options"
+        android:icon="@drawable/black_options" 
+        android:showAsAction="ifRoom">
+        
+        <!-- "options" submenu -->
+        <menu>
+            <item android:id="@+id/option1"
+                  android:title="@string/option1" />
+            <item android:id="@+id/option2"
+                  android:title="@string/option2" />
+            <item android:id="@+id/option3"
+                  android:title="@string/option3" />
+        </menu>
+        
+	</item>
 </menu>
