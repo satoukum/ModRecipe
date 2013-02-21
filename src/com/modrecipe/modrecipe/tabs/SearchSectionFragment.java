@@ -1,11 +1,16 @@
 package com.modrecipe.modrecipe.tabs;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.modrecipe.modrecipe.R;
 
@@ -21,13 +26,39 @@ public class SearchSectionFragment extends Fragment {
 		
 	}
 	
+	static View rootView;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_search, container, false);
+		rootView = inflater.inflate(R.layout.fragment_search, container, false);
         //TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
         //dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+		
+		rootView.findViewById(R.id.mainLayout).requestFocus();
+		
+		GridView gridview = (GridView) rootView.findViewById(R.id.gridview);
+	    gridview.setAdapter(new ImageAdapter(rootView.getContext()));
+
+	    gridview.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+				Toast.makeText(SearchSectionFragment.getContext(), "" + position, Toast.LENGTH_SHORT).show();
+			}});
+	   
+	    /**
+	    gridview.setOnItemClickListener(new OnItemClickListener() {
+	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+	            Toast.makeText(HelloGridView.this, "" + position, Toast.LENGTH_SHORT).show();
+	        }
+	    });
+	    */
+		
         return rootView;
         }
+
+	protected static Context getContext() {
+		return rootView.getContext();
+	}
 	
 }

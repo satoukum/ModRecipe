@@ -2,15 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".MainActivity$DummySectionFragment" >
+    tools:context=".MainActivity$DummySectionFragment"
+    android:id="@+id/mainLayout"
+    android:descendantFocusability="beforeDescendants"
+	android:focusableInTouchMode="true" >
     
-	<ScrollView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content" >
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-    	android:layout_height="fill_parent">
-
     <EditText
         android:id="@+id/searchEditText"
         android:layout_width="wrap_content"
@@ -46,12 +42,10 @@
         android:horizontalSpacing="10dp"
         android:numColumns="2"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" >
+        android:verticalSpacing="10dp"
+        android:paddingBottom="50dp" >
     </GridView>
-    
-    </RelativeLayout>
-    </ScrollView>
-    
+        
     <include 
         android:layout_width="wrap_content" 
         android:layout_alignParentBottom="true"
