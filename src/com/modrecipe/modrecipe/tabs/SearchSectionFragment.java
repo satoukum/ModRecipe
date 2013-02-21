@@ -1,6 +1,7 @@
 package com.modrecipe.modrecipe.tabs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.modrecipe.modrecipe.R;
+import com.modrecipe.modrecipe.RecipeActivity;
 
 /**
  * A dummy fragment representing a section of the app, but that simply
@@ -43,16 +45,17 @@ public class SearchSectionFragment extends Fragment {
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				Toast.makeText(SearchSectionFragment.getContext(), "" + position, Toast.LENGTH_SHORT).show();
+				//Toast.makeText(SearchSectionFragment.getContext(), "" + position, Toast.LENGTH_SHORT).show();
+				
+				Intent childActivityIntent = new Intent(v.getContext(),
+						RecipeActivity.class);
+						
+				childActivityIntent.putExtra("recipie_name", "Cappuccino-Chocolate Cupcakes");
+				childActivityIntent.putExtra("allowpin", "true");
+				
+				v.getContext().startActivity(childActivityIntent);
+				
 			}});
-	   
-	    /**
-	    gridview.setOnItemClickListener(new OnItemClickListener() {
-	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	            Toast.makeText(HelloGridView.this, "" + position, Toast.LENGTH_SHORT).show();
-	        }
-	    });
-	    */
 		
         return rootView;
         }
