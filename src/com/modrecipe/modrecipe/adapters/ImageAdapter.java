@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.tabs;
+package com.modrecipe.modrecipe.adapters;
 
 import com.modrecipe.modrecipe.R;
 import android.content.Context;

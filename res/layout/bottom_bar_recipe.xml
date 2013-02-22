@@ -7,7 +7,7 @@
 	android:background="@color/lightgrey3">
 
         <ImageView
-            android:id="@+id/addBtn"
+            android:id="@+id/heartBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -15,6 +15,32 @@
             android:paddingRight="15dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/icon_add" />
+            android:src="@drawable/icon_heart" />
+        
+        <ImageView
+            android:id="@+id/pinBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/heartBtn"            
+            android:background="@null"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/icon_pin" />
+        
+        <ImageView
+            android:id="@+id/modBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/pinBtn"  
+            android:background="@null"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/icon_recipemod" />
 
     </RelativeLayout>

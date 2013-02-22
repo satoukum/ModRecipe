@@ -13,5 +13,7 @@
     <string name="option2">Option2</string>
     <string name="option3">Option3</string>
     
+    <string name="IsleLabel"><u>FRUITS &amp; VEGETABLES</u></string>
+    <string name="FoodLabel">White Onion</string>
     
 </resources>

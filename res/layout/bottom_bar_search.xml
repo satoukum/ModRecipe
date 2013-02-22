@@ -16,5 +16,18 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:src="@drawable/icon_add" />
+        
+        <ImageView
+            android:id="@+id/addCameraBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/addBtn"            
+            android:background="@null"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/icon_addcamera" />
 
     </RelativeLayout>

@@ -25,8 +25,8 @@ public class SocialSectionFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_social, container, false);
-        TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-        dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+        //TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
+        //dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
         return rootView;
         }
 	

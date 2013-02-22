@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.RecipeActivity;
+import com.modrecipe.modrecipe.adapters.ImageAdapter;
 
 /**
  * A dummy fragment representing a section of the app, but that simply

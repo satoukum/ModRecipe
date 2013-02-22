@@ -25,6 +25,7 @@ public class RecipeActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         String allowpin = this.getIntent().getStringExtra("allowpin");
+        System.out.println("allowpin: " + allowpin);
 
         //TODO make less hacky
         if (allowpin.equals("true")){

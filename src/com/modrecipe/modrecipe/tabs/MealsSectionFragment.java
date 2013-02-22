@@ -49,15 +49,14 @@ public class MealsSectionFragment extends Fragment {
         sl1.add("Chicken Divan");
         sl1.add("General Tso's");
                 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, sl1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.meal_item, sl1);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new OnItemClickListener(){
-
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				Intent childActivityIntent = new Intent(v.getContext(),
 						RecipeActivity.class);
-						
+				System.out.println("hello world");
 				childActivityIntent.putExtra("allowpin", "false");
 				v.getContext().startActivity(childActivityIntent);
 			}
