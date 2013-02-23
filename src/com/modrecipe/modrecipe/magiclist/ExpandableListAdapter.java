@@ -3,13 +3,18 @@ package com.modrecipe.modrecipe.magiclist;
 import java.util.ArrayList;
 
 import com.modrecipe.modrecipe.R;
+import com.modrecipe.modrecipe.RecipeActivity;
 import com.modrecipe.modrecipe.R.id;
 import com.modrecipe.modrecipe.R.layout;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
@@ -49,14 +54,30 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view,
 			ViewGroup parent) {
-		ExpandableListChild child = (ExpandableListChild) getChild(groupPosition, childPosition);
+		final ExpandableListChild child = (ExpandableListChild) getChild(groupPosition, childPosition);
 		if (view == null) {
 			LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			view = infalInflater.inflate(R.layout.expandlist_child_item, null);
 		}
-		TextView tv = (TextView) view.findViewById(R.id.tvChild);
+		final TextView tv = (TextView) view.findViewById(R.id.tvChild);
 		tv.setText(child.getName().toString());
 		tv.setTag(child.getTag());
+		
+		// TODO Strikethrough feature
+		tv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            	if (!child.getStriked()) { // strike text
+            		tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            		//TODO add method to collapse groups once everything is selected
+            		child.setStrike(true);
+            	} else { // unstrike text
+            		tv.setPaintFlags( tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+            		child.setStrike(false);
+            	}
+            }
+        });
+    		
 		// TODO Auto-generated method stub
 		return view;
 	}

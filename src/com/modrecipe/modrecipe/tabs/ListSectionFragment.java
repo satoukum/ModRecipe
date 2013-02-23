@@ -54,8 +54,11 @@ public class ListSectionFragment extends Fragment {
 		//TODO make less tacky
 		int count = ExpAdapter.getGroupCount();
 		for (int position = 1; position <= count; position++)
-		    ExpandList.expandGroup(position - 1);
-		
+		    //if (position == 2) { //TODO fix section
+		    //	ExpandList.collapseGroup(position - 1);
+		    //} else {
+				ExpandList.expandGroup(position - 1);
+		    //}
         return rootView;
         }
 	
