@@ -38,11 +38,10 @@ public class MealsSectionFragment extends Fragment {
 		rootView = inflater.inflate(R.layout.fragment_meals, container, false);
 		
     	// Meal Plan
-    	ListView lv = (ListView) rootView.findViewById(R.id.mealView);
+    	final ListView lv = (ListView) rootView.findViewById(R.id.mealView);
     	
         final List<String> sl1 = new ArrayList<String>();
-        sl1.add("Cappuccino-Chocolate Cupcakes");
-        sl1.add("Chicken Pot Pie");        
+        sl1.add("Chicken Pot Pie Bites");        
         sl1.add("Quick Lasagna");
         sl1.add("Sweet and Sour Meatballs");
         sl1.add("Chicken Parmigiana");        
@@ -57,6 +56,7 @@ public class MealsSectionFragment extends Fragment {
 				Intent childActivityIntent = new Intent(v.getContext(),
 						RecipeActivity.class);
 				childActivityIntent.putExtra("allowpin", "false");
+				childActivityIntent.putExtra("recipe_imgsrc", R.drawable.recipe2); //TODO fix
 				v.getContext().startActivity(childActivityIntent);
 			}
         	

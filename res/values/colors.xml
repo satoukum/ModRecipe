@@ -11,5 +11,7 @@
 	<color name="lightgrey3">#DCDCDC</color>		
 	
 	<color name="pressed_green">#CC669900</color>
+	<color name="pressed_red">#CCc72a28</color>
+	<color name="red">#C92228</color>
 
 </resources>

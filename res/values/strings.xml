@@ -9,11 +9,34 @@
     <string name="title_section4">SOCIAL</string>
     
     <string name="menu_options">Options</string>
-    <string name="option1">Option1</string>
-    <string name="option2">Option2</string>
-    <string name="option3">Option3</string>
+    <string name="option1">Brainstorm List</string>
+    <string name="option2">Featured Meals</string>
+    <string name="option3">Pantry Items</string>
+    <string name="option4">Notifications</string>
+    <string name="option5">Settings</string>
+    <string name="option6">Logout</string>
     
     <string name="IsleLabel"><u>FRUITS &amp; VEGETABLES</u></string>
     <string name="FoodLabel">White Onion</string>
+    
+    
+    
+    <string name="NewRecipe_Name">Recipe Name</string>
+    <string name="NewRecipe_Ingredients">Ingredients</string>
+    <string name="NewRecipe_Directions">Directions</string>
+    <string name="NewRecipe_PrepareTime">Prepare Time</string>
+    <string name="NewRecipe_Servings">Number of Servings</string>
+
+    <string name="NewRecipe_Name_Hint">Enter recipe name</string>
+    <string name="NewRecipe_Ingredients_Hint1">Please list one item per line, e.g.</string>
+    <string name="NewRecipe_Ingredients_Hint2">1/2 cup Sugar</string>
+    <string name="NewRecipe_Ingredients_Hint3">1 Green Bell Pepper</string>
+    <string name="NewRecipe_Ingredients_Hint4">1 Tbs Vegetable Oil</string>
+    <string name="NewRecipe_Directions_Hint1">Typical recipes use between 4-10 steps</string>
+    <string name="NewRecipe_Directions_Hint2">Preheat Oven 375 degrees</string>
+    <string name="NewRecipe_Directions_Hint3">In small mixing bowl, add...</string>
+    <string name="NewRecipe_PrepareTime_Hint">Please list in 15-minute intervals e.g. \n
+        									Ready in 1 hour and 15 minutes</string>
+    <string name="NewRecipe_Servings_Hint">Serving size (2, 4, 8, ?)</string>
     
 </resources>

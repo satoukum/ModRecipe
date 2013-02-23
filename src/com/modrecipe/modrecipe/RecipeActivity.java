@@ -3,15 +3,21 @@ package com.modrecipe.modrecipe;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TwoLineListItem;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class RecipeActivity extends Activity {
     int mNum;
@@ -25,13 +31,16 @@ public class RecipeActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         String allowpin = this.getIntent().getStringExtra("allowpin");
-        System.out.println("allowpin: " + allowpin);
 
-        //TODO make less hacky
-        if (allowpin.equals("true")){
-            setContentView(R.layout.activity_recipe_pin);
+        //TODO make less hacky // READ ONLY
+        if (allowpin.equals("false")) {
+            setContentView(R.layout.activity_recipe_nopin);
         } else {
-        	setContentView(R.layout.activity_recipe_nopin);
+        	setContentView(R.layout.activity_recipe_pin);
+        	
+        	setBottomBarListeners();
+        	
+        	
         }
         
         //System.out.println("position: " + position);
@@ -39,7 +48,82 @@ public class RecipeActivity extends Activity {
         defaultRecipie();
         
     }
+    
+    public void setBottomBarListeners() {
+    	// Listeners of bottom bar TODO fix up
+    	final ImageView likeImgView = (ImageView) this.findViewById(R.id.heartBtn);
+    	likeImgView.setTag("unchecked");
+    	likeImgView.setOnClickListener(new OnClickListener(){
 
+			@Override
+			public void onClick(View v) {
+				if (likeImgView.getTag().equals("unchecked")) {
+					likeImgView.setImageResource(R.drawable.icon_heart_checked_red);
+					likeImgView.setTag("checked");
+				} else {
+					likeImgView.setImageResource(R.drawable.icon_heart_checked);
+					likeImgView.setTag("unchecked");
+				}
+			}
+        	
+        });
+    	
+    	final ImageView pinImgView = (ImageView) this.findViewById(R.id.pinBtn);
+    	pinImgView.setTag("unchecked");
+    	pinImgView.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				if (pinImgView.getTag().equals("unchecked")) {
+					pinImgView.setImageResource(R.drawable.icon_pin_red);
+					pinImgView.setTag("checked");
+				} else {
+					pinImgView.setImageResource(R.drawable.icon_pin);
+					pinImgView.setTag("unchecked");
+				}
+			}
+    		
+    	});
+    	
+    	final ImageView mealImgView = (ImageView) this.findViewById(R.id.mealBtn);
+    	mealImgView.setTag("unchecked");
+    	mealImgView.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				if (mealImgView.getTag().equals("unchecked")) {
+					mealImgView.setImageResource(R.drawable.icon_meal_red);
+					mealImgView.setTag("checked");
+				} else {
+					mealImgView.setImageResource(R.drawable.icon_meal);
+					mealImgView.setTag("unchecked");
+				}
+			}
+    		
+    	});
+    	
+    	final ImageView modImgView = (ImageView) this.findViewById(R.id.modBtn);
+    	modImgView.setTag("unchecked");
+    	modImgView.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				if (modImgView.getTag().equals("unchecked")) {
+					modImgView.setImageResource(R.drawable.icon_recipemod_red);
+					modImgView.setTag("checked");
+				} else {
+					modImgView.setImageResource(R.drawable.icon_recipemod);
+					modImgView.setTag("unchecked");
+				}
+			}
+    		
+    	});
+
+    	
+    	
+    }
+
+    ImageView recipeimg;
     TextView recipiename;
 	TextView ingredients;
 	TextView directions;
@@ -51,6 +135,7 @@ public class RecipeActivity extends Activity {
     public void defaultRecipie() {
     	
     	//recipiename = (TextView) findViewById(R.id.textView1);
+    	recipeimg = (ImageView) findViewById(R.id.recipeImg);
         servings = (TextView) findViewById(R.id.textView7);
         ingredients = (TextView) findViewById(R.id.textView8);        
         directions = (TextView) findViewById(R.id.textView9);
@@ -59,6 +144,9 @@ public class RecipeActivity extends Activity {
     	
         // TODO fix up... recipie_name
         //recipiename.setText("" + getIntent().getExtras().get("recipie_name"));//"Sweet and Sour Meatballs");
+        long imgResource = this.getIntent().getIntExtra("recipe_imgsrc", -1);
+        recipeimg.setImageResource((int) imgResource);
+        System.out.println("imgResource: " + imgResource);
         
         servings.setText("\n" +
         		"Ready in 1 Hour and 10 minutes, Servings: 8 \n");

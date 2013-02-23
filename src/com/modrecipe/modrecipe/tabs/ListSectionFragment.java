@@ -111,10 +111,59 @@ public class ListSectionFragment extends Fragment {
         ch3_2.setTag(null);
         list2.add(ch3_2);
         gru3.setItems(list2);
+        list2 = new ArrayList<ExpandableListChild>();
 
+        ExpandableListGroup gru4 = new ExpandableListGroup();
+        gru4.setName("MEAT & SEAFOOD");
+        ExpandableListChild ch4_1 = new ExpandableListChild();
+        ch4_1.setName("3 Breasts Chicken");
+        ch4_1.setTag(null);
+        list2.add(ch4_1);
+        ExpandableListChild ch4_2 = new ExpandableListChild();
+        ch4_2.setName("1 lb Hamburger Meat");
+        ch4_2.setTag(null);
+        list2.add(ch4_2);
+        gru4.setItems(list2);
+        list2 = new ArrayList<ExpandableListChild>();
+        
+        ExpandableListGroup gru6 = new ExpandableListGroup();
+        gru6.setName("CANNED GOODS & SOUPS");
+        ExpandableListChild ch6_1 = new ExpandableListChild();
+        ch6_1.setName("2 10 3/4 oz can Campbell's Cream of Chicken Soup");
+        ch6_1.setTag(null);
+        list2.add(ch6_1);
+        ExpandableListChild ch6_2 = new ExpandableListChild();
+        ch6_2.setName("1 10 3/4 oz can Campbell's Cream of Mushroom Soup");
+        ch6_2.setTag(null);
+        list2.add(ch6_2);
+        gru6.setItems(list2);
+        list2 = new ArrayList<ExpandableListChild>();        
+        
+        ExpandableListGroup gru5 = new ExpandableListGroup();
+        gru5.setName("FROZEN ITEMS");
+        ExpandableListChild ch5_1 = new ExpandableListChild();
+        ch5_1.setName("2 16 oz bags frozen Mixed Vegetables");
+        ch5_1.setTag(null);
+        list2.add(ch5_1);
+        ExpandableListChild ch5_2 = new ExpandableListChild();
+        ch5_2.setName("1 16 oz bags frozen Broccoli Vegetables");
+        ch5_2.setTag(null);
+        list2.add(ch5_2);
+        gru5.setItems(list2);
+        list2 = new ArrayList<ExpandableListChild>();
+        
         list.add(gru1);
         list.add(gru2);
-        list.add(gru3);        
+        list.add(gru3);
+        list.add(gru4);
+        list.add(gru6);        
+        list.add(gru5);
+        
+        //BREAKFAST & CEREAL
+        //BEVERAGES
+        //CANNED GOODS & SOUPS
+        //FROZEN ITEMS
+        //MEAT & SEAFOOD
         
         return list;
     }

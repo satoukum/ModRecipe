@@ -28,7 +28,7 @@
             android:paddingRight="15dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/icon_past" />
+            android:src="@drawable/icon_past2" />
         
         <ImageView
             android:id="@+id/clearBtn"

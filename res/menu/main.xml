@@ -19,6 +19,12 @@
                   android:title="@string/option2" />
             <item android:id="@+id/option3"
                   android:title="@string/option3" />
+            <item android:id="@+id/option4"
+                  android:title="@string/option4" />
+            <item android:id="@+id/option5"
+                  android:title="@string/option5" />
+            <item android:id="@+id/option6"
+                  android:title="@string/option6" />
         </menu>
         
 	</item>

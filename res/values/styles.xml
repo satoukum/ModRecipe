@@ -15,18 +15,18 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        <!--  	To change the underline color to green: 
+        <!--  	To change the underline color to red: 
         		http://jgilfelt.github.com/android-actionbarstylegenerator/#name=example&compat=holo&theme=light&actionbarstyle=solid&backColor=E4E4E4%2C100&secondaryColor=D6D6D6%2C100&tertiaryColor=F2F2F2%2C100&accentColor=33B5E5%2C100
          -->
         
         
-        <item name="android:actionBarItemBackground">@drawable/selectable_background_green</item>
-        <item name="android:popupMenuStyle">@style/green_PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/green_DropDownListView</item>
-        <item name="android:actionBarTabStyle">@style/green_ActionBarTabStyle</item>
-        <item name="android:actionDropDownStyle">@style/green_DropDownNav</item>
-        <item name="android:actionBarStyle">@style/green_solid_ActionBar</item>
-        <item name="android:panelBackground">@drawable/menu_hardkey_panel_green</item>
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_red</item>
+        <item name="android:popupMenuStyle">@style/red_PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/red_DropDownListView</item>
+        <item name="android:actionBarTabStyle">@style/red_ActionBarTabStyle</item>
+        <item name="android:actionDropDownStyle">@style/red_DropDownNav</item>
+        <item name="android:actionBarStyle">@style/red_solid_ActionBar</item>
+        <item name="android:panelBackground">@drawable/menu_hardkey_panel_red</item>
         <item name="@android:attr/actionBarTabTextStyle">@style/TabStyle</item>
         <!--<item name="android:listChoiceIndicatorMultiple">@drawable/ad_btn_check_holo_light</item>-->
         <!--<item name="android:listChoiceIndicatorSingle">@drawable/ad_btn_radio_holo_light</item>-->        
@@ -38,44 +38,44 @@
     	<item name="android:textColor">@color/black</item>
 	</style>
     
-    <style name="green_solid_ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">@drawable/ab_solid_green</item>
-        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_green</item>
-        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_green</item>
-        <item name="android:progressBarStyle">@style/green_ProgressBar</item>
+    <style name="red_solid_ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_red</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_red</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_red</item>
+        <item name="android:progressBarStyle">@style/red_ProgressBar</item>
     </style>
 
-    <style name="green_transparent_ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@drawable/ab_transparent_green</item>
-        <item name="android:progressBarStyle">@style/green_ProgressBar</item>
+    <style name="red_transparent_ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_red</item>
+        <item name="android:progressBarStyle">@style/red_ProgressBar</item>
     </style>
 
-    <style name="green_PopupMenu" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_green</item>	
+    <style name="red_PopupMenu" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_red</item>	
     </style>
 
-    <style name="green_DropDownListView" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
-        <item name="android:listSelector">@drawable/selectable_background_green</item>
+    <style name="red_DropDownListView" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_red</item>
     </style>
 
-    <style name="green_ActionBarTabStyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
-        <item name="android:background">@drawable/tab_indicator_ab_green</item>
+    <style name="red_ActionBarTabStyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_red</item>
     </style>
 
-    <style name="green_DropDownNav" parent="@android:style/Widget.Holo.Light.Spinner">
-        <item name="android:background">@drawable/spinner_background_ab_green</item>
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_green</item>
-        <item name="android:dropDownSelector">@drawable/selectable_background_green</item>
+    <style name="red_DropDownNav" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_red</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_red</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_red</item>
     </style>
     
-    <style name="green_ProgressBar" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
-        <item name="android:progressDrawable">@drawable/progress_horizontal_green</item>
+    <style name="red_ProgressBar" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_red</item>
     </style>
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
-    <style name="Theme.green.widget" parent="@android:style/Theme.Holo">
-        <item name="android:popupMenuStyle">@style/green_PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/green_DropDownListView</item>
+    <style name="Theme.red.widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/red_PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/red_DropDownListView</item>
     </style>
 
 </resources>

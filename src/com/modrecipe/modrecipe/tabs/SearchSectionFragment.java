@@ -7,12 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.modrecipe.modrecipe.NewRecipeActivity;
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.RecipeActivity;
 import com.modrecipe.modrecipe.adapters.ImageAdapter;
@@ -40,7 +43,7 @@ public class SearchSectionFragment extends Fragment {
 		
 		rootView.findViewById(R.id.mainLayout).requestFocus();
 		
-		GridView gridview = (GridView) rootView.findViewById(R.id.gridview);
+		final GridView gridview = (GridView) rootView.findViewById(R.id.gridview);
 	    gridview.setAdapter(new ImageAdapter(rootView.getContext()));
 
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
@@ -52,11 +55,27 @@ public class SearchSectionFragment extends Fragment {
 						RecipeActivity.class);
 						
 				childActivityIntent.putExtra("recipie_name", "Cappuccino-Chocolate Cupcakes");
+				childActivityIntent.putExtra("recipe_imgsrc", (int) gridview.getAdapter().getItemId(position));
 				childActivityIntent.putExtra("allowpin", "true");
 				
 				v.getContext().startActivity(childActivityIntent);
 				
 			}});
+	    
+	    //TODO fix up
+	    final ImageView addImgView = (ImageView) rootView.findViewById(R.id.addBtn);
+    	addImgView.setTag("unchecked");
+    	addImgView.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent childActivityIntent = new Intent(v.getContext(),
+						NewRecipeActivity.class);
+										
+				v.getContext().startActivity(childActivityIntent);				
+			}
+    		
+    	});
 		
         return rootView;
         }

@@ -4,13 +4,15 @@
     android:layout_height="fill_parent"
     tools:context=".MainActivity$DummySectionFragment" >
     
+        
     <ExpandableListView
         android:id="@+id/ExpList"
+        android:layout_height="2000dp"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
         android:divider="@null"
-		android:dividerHeight="0dp"
-		android:groupIndicator="@null" />
+        android:dividerHeight="5dp"
+        android:groupIndicator="@null"
+        android:paddingBottom="50dp" />
 
     <include 
         android:layout_width="wrap_content" 

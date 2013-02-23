@@ -28,7 +28,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     public long getItemId(int position) {
-        return 0;
+        return mThumbIds[position];
     }
 
     // create a new ImageView for each item referenced by the Adapter
@@ -49,9 +49,9 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-    		R.drawable.recipe1, R.drawable.recipe2,
+    		R.drawable.recipe2, R.drawable.recipe6,
             R.drawable.recipe3, R.drawable.recipe4,
-            R.drawable.recipe5, R.drawable.recipe6
+            R.drawable.recipe5, R.drawable.recipe1
     };
 	
 }
