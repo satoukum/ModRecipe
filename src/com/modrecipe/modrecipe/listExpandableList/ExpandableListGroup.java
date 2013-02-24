@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.magiclist;
+package com.modrecipe.modrecipe.listExpandableList;
 
 import java.util.ArrayList;
 

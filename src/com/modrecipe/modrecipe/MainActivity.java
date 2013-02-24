@@ -1,6 +1,8 @@
 package com.modrecipe.modrecipe;
 
 import java.util.Locale;
+
+import com.modrecipe.modrecipe.Up.ActionBarCompat;
 import com.modrecipe.modrecipe.tabs.*;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -35,7 +37,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

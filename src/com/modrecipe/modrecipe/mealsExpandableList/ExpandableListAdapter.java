@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.magiclist;
+package com.modrecipe.modrecipe.mealsExpandableList;
 
 import java.util.ArrayList;
 
@@ -55,6 +55,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view,
 			ViewGroup parent) {
 		final ExpandableListChild child = (ExpandableListChild) getChild(groupPosition, childPosition);
+		
 		if (view == null) {
 			LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			view = infalInflater.inflate(R.layout.expandlist_child_item, null);
@@ -62,21 +63,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		final TextView tv = (TextView) view.findViewById(R.id.tvChild);
 		tv.setText(child.getName().toString());
 		tv.setTag(child.getTag());
-		
-		// TODO Strikethrough feature
-		tv.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            	if (!child.getStriked()) { // strike text
-            		tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            		//TODO add method to collapse groups once everything is selected
-            		child.setStrike(true);
-            	} else { // unstrike text
-            		tv.setPaintFlags( tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
-            		child.setStrike(false);
-            	}
-            }
-        });
     		
 		// TODO Auto-generated method stub
 		return view;

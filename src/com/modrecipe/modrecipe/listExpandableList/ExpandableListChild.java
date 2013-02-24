@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.magiclist;
+package com.modrecipe.modrecipe.listExpandableList;
 
 public class ExpandableListChild {
 
@@ -13,7 +13,7 @@ public class ExpandableListChild {
 	public void setName(String Name) {
 		this.Name = Name;
 	}
-	public boolean getStriked() {
+	public boolean isStriked() {
 		return Striked;
 	}
 	public void setStrike(boolean striked) {

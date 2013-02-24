@@ -54,12 +54,11 @@ public class SearchSectionFragment extends Fragment {
 				Intent childActivityIntent = new Intent(v.getContext(),
 						RecipeActivity.class);
 						
-				childActivityIntent.putExtra("recipie_name", "Cappuccino-Chocolate Cupcakes");
 				childActivityIntent.putExtra("recipe_imgsrc", (int) gridview.getAdapter().getItemId(position));
 				childActivityIntent.putExtra("allowpin", "true");
 				
 				v.getContext().startActivity(childActivityIntent);
-				
+		        
 			}});
 	    
 	    //TODO fix up

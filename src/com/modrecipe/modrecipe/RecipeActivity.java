@@ -2,11 +2,14 @@ package com.modrecipe.modrecipe;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modrecipe.modrecipe.Up.ActionBarCompat;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -30,6 +33,8 @@ public class RecipeActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        ActionBarCompat.setDisplayHomeAsUpEnabled(this, true); // Back button up top?
+        
         String allowpin = this.getIntent().getStringExtra("allowpin");
 
         //TODO make less hacky // READ ONLY
@@ -37,10 +42,7 @@ public class RecipeActivity extends Activity {
             setContentView(R.layout.activity_recipe_nopin);
         } else {
         	setContentView(R.layout.activity_recipe_pin);
-        	
-        	setBottomBarListeners();
-        	
-        	
+        	setBottomBarListeners();	
         }
         
         //System.out.println("position: " + position);
@@ -48,6 +50,15 @@ public class RecipeActivity extends Activity {
         defaultRecipie();
         
     }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }    
     
     public void setBottomBarListeners() {
     	// Listeners of bottom bar TODO fix up

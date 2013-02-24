@@ -8,20 +8,26 @@
 package com.modrecipe.modrecipe;
 
 public final class R {
+    public static final class anim {
+        public static final int slide_in_left=0x7f040000;
+        public static final int slide_in_right=0x7f040001;
+        public static final int slide_out_left=0x7f040002;
+        public static final int slide_out_right=0x7f040003;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int black=0x7f040001;
-        public static final int green=0x7f040002;
-        public static final int grey=0x7f040004;
-        public static final int lightgrey=0x7f040005;
-        public static final int lightgrey2=0x7f040006;
-        public static final int lightgrey3=0x7f040007;
-        public static final int pressed_green=0x7f040008;
-        public static final int pressed_red=0x7f040009;
-        public static final int red=0x7f04000a;
-        public static final int transparent=0x7f040000;
-        public static final int white=0x7f040003;
+        public static final int black=0x7f050001;
+        public static final int green=0x7f050002;
+        public static final int grey=0x7f050004;
+        public static final int lightgrey=0x7f050005;
+        public static final int lightgrey2=0x7f050006;
+        public static final int lightgrey3=0x7f050007;
+        public static final int pressed_green=0x7f050008;
+        public static final int pressed_red=0x7f050009;
+        public static final int red=0x7f05000a;
+        public static final int transparent=0x7f050000;
+        public static final int white=0x7f050003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -30,8 +36,8 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
         public static final int ab_bottom_solid_green=0x7f020000;
@@ -62,112 +68,113 @@ public final class R {
         public static final int icon_recipemod=0x7f020019;
         public static final int icon_recipemod_red=0x7f02001a;
         public static final int icon_search=0x7f02001b;
-        public static final int list_divider=0x7f02001c;
-        public static final int list_focused_green=0x7f02001d;
-        public static final int list_focused_red=0x7f02001e;
-        public static final int menu_dropdown_panel_green=0x7f02001f;
-        public static final int menu_dropdown_panel_red=0x7f020020;
-        public static final int menu_hardkey_panel_green=0x7f020021;
-        public static final int menu_hardkey_panel_red=0x7f020022;
-        public static final int pressed_background_green=0x7f020023;
-        public static final int pressed_background_red=0x7f020024;
-        public static final int progress_bg_green=0x7f020025;
-        public static final int progress_bg_red=0x7f020026;
-        public static final int progress_horizontal_green=0x7f020027;
-        public static final int progress_horizontal_red=0x7f020028;
-        public static final int progress_primary_green=0x7f020029;
-        public static final int progress_primary_red=0x7f02002a;
-        public static final int progress_secondary_green=0x7f02002b;
-        public static final int progress_secondary_red=0x7f02002c;
-        public static final int recipe1=0x7f02002d;
-        public static final int recipe2=0x7f02002e;
-        public static final int recipe3=0x7f02002f;
-        public static final int recipe4=0x7f020030;
-        public static final int recipe5=0x7f020031;
-        public static final int recipe6=0x7f020032;
-        public static final int recipe_search2=0x7f020033;
-        public static final int red=0x7f020034;
-        public static final int selectable_background_green=0x7f020035;
-        public static final int selectable_background_red=0x7f020036;
-        public static final int socialprofile2=0x7f020037;
-        public static final int spinner_ab_default_green=0x7f020038;
-        public static final int spinner_ab_default_red=0x7f020039;
-        public static final int spinner_ab_disabled_green=0x7f02003a;
-        public static final int spinner_ab_disabled_red=0x7f02003b;
-        public static final int spinner_ab_focused_green=0x7f02003c;
-        public static final int spinner_ab_focused_red=0x7f02003d;
-        public static final int spinner_ab_pressed_green=0x7f02003e;
-        public static final int spinner_ab_pressed_red=0x7f02003f;
-        public static final int spinner_background_ab_green=0x7f020040;
-        public static final int spinner_background_ab_red=0x7f020041;
-        public static final int tab_indicator_ab_green=0x7f020042;
-        public static final int tab_indicator_ab_red=0x7f020043;
-        public static final int tab_selected_focused_green=0x7f020044;
-        public static final int tab_selected_focused_red=0x7f020045;
-        public static final int tab_selected_green=0x7f020046;
-        public static final int tab_selected_pressed_green=0x7f020047;
-        public static final int tab_selected_pressed_red=0x7f020048;
-        public static final int tab_selected_red=0x7f020049;
-        public static final int tab_unselected_focused_green=0x7f02004a;
-        public static final int tab_unselected_focused_red=0x7f02004b;
-        public static final int tab_unselected_pressed_green=0x7f02004c;
-        public static final int tab_unselected_pressed_red=0x7f02004d;
+        public static final int icon_up=0x7f02001c;
+        public static final int list_divider=0x7f02001d;
+        public static final int list_focused_green=0x7f02001e;
+        public static final int list_focused_red=0x7f02001f;
+        public static final int menu_dropdown_panel_green=0x7f020020;
+        public static final int menu_dropdown_panel_red=0x7f020021;
+        public static final int menu_hardkey_panel_green=0x7f020022;
+        public static final int menu_hardkey_panel_red=0x7f020023;
+        public static final int pressed_background_green=0x7f020024;
+        public static final int pressed_background_red=0x7f020025;
+        public static final int progress_bg_green=0x7f020026;
+        public static final int progress_bg_red=0x7f020027;
+        public static final int progress_horizontal_green=0x7f020028;
+        public static final int progress_horizontal_red=0x7f020029;
+        public static final int progress_primary_green=0x7f02002a;
+        public static final int progress_primary_red=0x7f02002b;
+        public static final int progress_secondary_green=0x7f02002c;
+        public static final int progress_secondary_red=0x7f02002d;
+        public static final int recipe1=0x7f02002e;
+        public static final int recipe2=0x7f02002f;
+        public static final int recipe3=0x7f020030;
+        public static final int recipe4=0x7f020031;
+        public static final int recipe5=0x7f020032;
+        public static final int recipe6=0x7f020033;
+        public static final int recipe_search2=0x7f020034;
+        public static final int red=0x7f020035;
+        public static final int selectable_background_green=0x7f020036;
+        public static final int selectable_background_red=0x7f020037;
+        public static final int socialprofile2=0x7f020038;
+        public static final int spinner_ab_default_green=0x7f020039;
+        public static final int spinner_ab_default_red=0x7f02003a;
+        public static final int spinner_ab_disabled_green=0x7f02003b;
+        public static final int spinner_ab_disabled_red=0x7f02003c;
+        public static final int spinner_ab_focused_green=0x7f02003d;
+        public static final int spinner_ab_focused_red=0x7f02003e;
+        public static final int spinner_ab_pressed_green=0x7f02003f;
+        public static final int spinner_ab_pressed_red=0x7f020040;
+        public static final int spinner_background_ab_green=0x7f020041;
+        public static final int spinner_background_ab_red=0x7f020042;
+        public static final int tab_indicator_ab_green=0x7f020043;
+        public static final int tab_indicator_ab_red=0x7f020044;
+        public static final int tab_selected_focused_green=0x7f020045;
+        public static final int tab_selected_focused_red=0x7f020046;
+        public static final int tab_selected_green=0x7f020047;
+        public static final int tab_selected_pressed_green=0x7f020048;
+        public static final int tab_selected_pressed_red=0x7f020049;
+        public static final int tab_selected_red=0x7f02004a;
+        public static final int tab_unselected_focused_green=0x7f02004b;
+        public static final int tab_unselected_focused_red=0x7f02004c;
+        public static final int tab_unselected_pressed_green=0x7f02004d;
+        public static final int tab_unselected_pressed_red=0x7f02004e;
     }
     public static final class id {
-        public static final int ExpList=0x7f090021;
-        public static final int LinearLayout01=0x7f090029;
-        public static final int LinearLayout2=0x7f090003;
-        public static final int RelativeLayout1=0x7f090001;
-        public static final int ScrlView=0x7f090002;
-        public static final int ScrollView01=0x7f09002a;
-        public static final int action_settings=0x7f09002e;
-        public static final int addBtn=0x7f090017;
-        public static final int addCameraBtn=0x7f09001e;
-        public static final int bottom_bar_search=0x7f090028;
-        public static final int clearBtn=0x7f090018;
-        public static final int editText1=0x7f090007;
-        public static final int editText2=0x7f090008;
-        public static final int editText3=0x7f090009;
-        public static final int editText4=0x7f09000a;
-        public static final int editText5=0x7f09000c;
-        public static final int editText6=0x7f09000d;
-        public static final int editText7=0x7f09000e;
-        public static final int editTextX=0x7f090005;
-        public static final int gridview=0x7f090027;
-        public static final int heartBtn=0x7f09001b;
-        public static final int imageView1=0x7f09002b;
-        public static final int imageView2=0x7f09002c;
-        public static final int mainLayout=0x7f090024;
-        public static final int mealBtn=0x7f09001c;
-        public static final int mealView=0x7f090023;
-        public static final int menuitem_options=0x7f09002f;
-        public static final int modBtn=0x7f09001d;
-        public static final int nameTxtView=0x7f090004;
-        public static final int option1=0x7f090030;
-        public static final int option2=0x7f090031;
-        public static final int option3=0x7f090032;
-        public static final int option4=0x7f090033;
-        public static final int option5=0x7f090034;
-        public static final int option6=0x7f090035;
-        public static final int pager=0x7f090000;
-        public static final int pastBtn=0x7f090019;
-        public static final int pinBtn=0x7f09001a;
-        public static final int recipeImg=0x7f090011;
-        public static final int searchBtn=0x7f090026;
-        public static final int searchEditText=0x7f090025;
-        public static final int section_label=0x7f090022;
-        public static final int textView1=0x7f09002d;
-        public static final int textView10=0x7f090015;
-        public static final int textView11=0x7f090016;
-        public static final int textView3=0x7f090006;
-        public static final int textView4=0x7f09000b;
-        public static final int textView5=0x7f09000f;
-        public static final int textView6=0x7f090010;
-        public static final int textView7=0x7f090012;
-        public static final int textView8=0x7f090013;
-        public static final int textView9=0x7f090014;
-        public static final int tvChild=0x7f09001f;
-        public static final int tvGroup=0x7f090020;
+        public static final int ExpList=0x7f0a0021;
+        public static final int ExpList2=0x7f0a0023;
+        public static final int LinearLayout01=0x7f0a0029;
+        public static final int LinearLayout2=0x7f0a0003;
+        public static final int RelativeLayout1=0x7f0a0001;
+        public static final int ScrlView=0x7f0a0002;
+        public static final int ScrollView01=0x7f0a002a;
+        public static final int action_settings=0x7f0a002e;
+        public static final int addBtn=0x7f0a0017;
+        public static final int addCameraBtn=0x7f0a001e;
+        public static final int bottom_bar_search=0x7f0a0028;
+        public static final int clearBtn=0x7f0a0018;
+        public static final int editText1=0x7f0a0007;
+        public static final int editText2=0x7f0a0008;
+        public static final int editText3=0x7f0a0009;
+        public static final int editText4=0x7f0a000a;
+        public static final int editText5=0x7f0a000c;
+        public static final int editText6=0x7f0a000d;
+        public static final int editText7=0x7f0a000e;
+        public static final int editTextX=0x7f0a0005;
+        public static final int gridview=0x7f0a0027;
+        public static final int heartBtn=0x7f0a001b;
+        public static final int imageView1=0x7f0a002b;
+        public static final int imageView2=0x7f0a002c;
+        public static final int mainLayout=0x7f0a0024;
+        public static final int mealBtn=0x7f0a001c;
+        public static final int menuitem_options=0x7f0a002f;
+        public static final int modBtn=0x7f0a001d;
+        public static final int nameTxtView=0x7f0a0004;
+        public static final int option1=0x7f0a0030;
+        public static final int option2=0x7f0a0031;
+        public static final int option3=0x7f0a0032;
+        public static final int option4=0x7f0a0033;
+        public static final int option5=0x7f0a0034;
+        public static final int option6=0x7f0a0035;
+        public static final int pager=0x7f0a0000;
+        public static final int pastBtn=0x7f0a0019;
+        public static final int pinBtn=0x7f0a001a;
+        public static final int recipeImg=0x7f0a0011;
+        public static final int searchBtn=0x7f0a0026;
+        public static final int searchEditText=0x7f0a0025;
+        public static final int section_label=0x7f0a0022;
+        public static final int textView1=0x7f0a002d;
+        public static final int textView10=0x7f0a0015;
+        public static final int textView11=0x7f0a0016;
+        public static final int textView3=0x7f0a0006;
+        public static final int textView4=0x7f0a000b;
+        public static final int textView5=0x7f0a000f;
+        public static final int textView6=0x7f0a0010;
+        public static final int textView7=0x7f0a0012;
+        public static final int textView8=0x7f0a0013;
+        public static final int textView9=0x7f0a0014;
+        public static final int tvChild=0x7f0a001f;
+        public static final int tvGroup=0x7f0a0020;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -189,39 +196,39 @@ public final class R {
         public static final int meal_item=0x7f030010;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int FoodLabel=0x7f06000e;
-        public static final int IsleLabel=0x7f06000d;
-        public static final int NewRecipe_Directions=0x7f060011;
-        public static final int NewRecipe_Directions_Hint1=0x7f060019;
-        public static final int NewRecipe_Directions_Hint2=0x7f06001a;
-        public static final int NewRecipe_Directions_Hint3=0x7f06001b;
-        public static final int NewRecipe_Ingredients=0x7f060010;
-        public static final int NewRecipe_Ingredients_Hint1=0x7f060015;
-        public static final int NewRecipe_Ingredients_Hint2=0x7f060016;
-        public static final int NewRecipe_Ingredients_Hint3=0x7f060017;
-        public static final int NewRecipe_Ingredients_Hint4=0x7f060018;
-        public static final int NewRecipe_Name=0x7f06000f;
-        public static final int NewRecipe_Name_Hint=0x7f060014;
-        public static final int NewRecipe_PrepareTime=0x7f060012;
-        public static final int NewRecipe_PrepareTime_Hint=0x7f06001c;
-        public static final int NewRecipe_Servings=0x7f060013;
-        public static final int NewRecipe_Servings_Hint=0x7f06001d;
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int menu_options=0x7f060006;
-        public static final int option1=0x7f060007;
-        public static final int option2=0x7f060008;
-        public static final int option3=0x7f060009;
-        public static final int option4=0x7f06000a;
-        public static final int option5=0x7f06000b;
-        public static final int option6=0x7f06000c;
-        public static final int title_section1=0x7f060002;
-        public static final int title_section2=0x7f060003;
-        public static final int title_section3=0x7f060004;
-        public static final int title_section4=0x7f060005;
+        public static final int FoodLabel=0x7f07000e;
+        public static final int IsleLabel=0x7f07000d;
+        public static final int NewRecipe_Directions=0x7f070011;
+        public static final int NewRecipe_Directions_Hint1=0x7f070019;
+        public static final int NewRecipe_Directions_Hint2=0x7f07001a;
+        public static final int NewRecipe_Directions_Hint3=0x7f07001b;
+        public static final int NewRecipe_Ingredients=0x7f070010;
+        public static final int NewRecipe_Ingredients_Hint1=0x7f070015;
+        public static final int NewRecipe_Ingredients_Hint2=0x7f070016;
+        public static final int NewRecipe_Ingredients_Hint3=0x7f070017;
+        public static final int NewRecipe_Ingredients_Hint4=0x7f070018;
+        public static final int NewRecipe_Name=0x7f07000f;
+        public static final int NewRecipe_Name_Hint=0x7f070014;
+        public static final int NewRecipe_PrepareTime=0x7f070012;
+        public static final int NewRecipe_PrepareTime_Hint=0x7f07001c;
+        public static final int NewRecipe_Servings=0x7f070013;
+        public static final int NewRecipe_Servings_Hint=0x7f07001d;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int menu_options=0x7f070006;
+        public static final int option1=0x7f070007;
+        public static final int option2=0x7f070008;
+        public static final int option3=0x7f070009;
+        public static final int option4=0x7f07000a;
+        public static final int option5=0x7f07000b;
+        public static final int option6=0x7f07000c;
+        public static final int title_section1=0x7f070002;
+        public static final int title_section2=0x7f070003;
+        public static final int title_section3=0x7f070004;
+        public static final int title_section4=0x7f070005;
     }
     public static final class style {
         /** 
@@ -245,24 +252,24 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
 <item name="android:listChoiceIndicatorMultiple">@drawable/ad_btn_check_holo_light</item>
 <item name="android:listChoiceIndicatorSingle">@drawable/ad_btn_radio_holo_light</item>
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
         /**  Modify the text color 
          */
-        public static final int TabStyle=0x7f070002;
+        public static final int TabStyle=0x7f080002;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_red_widget=0x7f07000a;
-        public static final int red_ActionBarTabStyle=0x7f070007;
-        public static final int red_DropDownListView=0x7f070006;
-        public static final int red_DropDownNav=0x7f070008;
-        public static final int red_PopupMenu=0x7f070005;
-        public static final int red_ProgressBar=0x7f070009;
-        public static final int red_solid_ActionBar=0x7f070003;
-        public static final int red_transparent_ActionBar=0x7f070004;
+        public static final int Theme_red_widget=0x7f08000a;
+        public static final int red_ActionBarTabStyle=0x7f080007;
+        public static final int red_DropDownListView=0x7f080006;
+        public static final int red_DropDownNav=0x7f080008;
+        public static final int red_PopupMenu=0x7f080005;
+        public static final int red_ProgressBar=0x7f080009;
+        public static final int red_solid_ActionBar=0x7f080003;
+        public static final int red_transparent_ActionBar=0x7f080004;
     }
 }

@@ -4,11 +4,14 @@
     android:layout_height="fill_parent"
     tools:context=".MainActivity$DummySectionFragment" >
 
-    <ListView
-        android:id="@+id/mealView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@null" />
+    <ExpandableListView
+        android:id="@+id/ExpList2"
+        android:layout_height="2000dp"
+        android:layout_width="fill_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:groupIndicator="@null"
+        android:paddingBottom="50dp" />
 
     <include 
         android:layout_width="wrap_content" 

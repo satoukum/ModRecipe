@@ -15,9 +15,9 @@ import android.widget.TextView;
 import com.modrecipe.modrecipe.MainActivity;
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.adapters.GroceryListAdapter;
-import com.modrecipe.modrecipe.magiclist.ExpandableListAdapter;
-import com.modrecipe.modrecipe.magiclist.ExpandableListChild;
-import com.modrecipe.modrecipe.magiclist.ExpandableListGroup;
+import com.modrecipe.modrecipe.listExpandableList.ExpandableListAdapter;
+import com.modrecipe.modrecipe.listExpandableList.ExpandableListChild;
+import com.modrecipe.modrecipe.listExpandableList.ExpandableListGroup;
 import com.modrecipe.modrecipe.objects.Ingredient;
 
 /**
@@ -36,7 +36,7 @@ public class ListSectionFragment extends Fragment {
 	static View rootView;
 	
 	private ExpandableListAdapter ExpAdapter;
-	private ArrayList<ExpandableListGroup> ExpListItems;
+	private static ArrayList<ExpandableListGroup> ExpListItems = new ArrayList<ExpandableListGroup>();
 	private ExpandableListView ExpandList;
 
 	
