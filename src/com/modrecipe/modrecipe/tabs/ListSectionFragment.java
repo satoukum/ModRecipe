@@ -12,7 +12,6 @@ import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.modrecipe.modrecipe.MainActivity;
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.adapters.GroceryListAdapter;
 import com.modrecipe.modrecipe.listExpandableList.ExpandableListAdapter;

@@ -4,7 +4,7 @@
 	android:layout_alignParentBottom="true"
 	android:layout_alignParentLeft="true"
 	android:layout_alignParentRight="true"
-	android:background="@color/lightgrey3">
+	android:background="@color/lightgrey">
         
         <ImageView
             android:id="@+id/pinBtn"
@@ -15,8 +15,6 @@
             android:background="@null"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:src="@drawable/icon_pin" />
 
     </RelativeLayout>

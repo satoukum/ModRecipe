@@ -19,7 +19,7 @@
         		http://jgilfelt.github.com/android-actionbarstylegenerator/#name=example&compat=holo&theme=light&actionbarstyle=solid&backColor=E4E4E4%2C100&secondaryColor=D6D6D6%2C100&tertiaryColor=F2F2F2%2C100&accentColor=33B5E5%2C100
          -->
         
-        <item name="android:homeAsUpIndicator">@drawable/icon_up</item>
+        <item name="android:homeAsUpIndicator">@drawable/icon_up2</item>
         <item name="android:actionBarItemBackground">@drawable/selectable_background_red</item>
         <item name="android:popupMenuStyle">@style/red_PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/red_DropDownListView</item>

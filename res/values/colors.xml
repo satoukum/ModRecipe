@@ -5,10 +5,8 @@
 	<color name="black">#000000</color>
 	<color name="green">#669900</color>
 	<color name="white">#FFFFFF</color>	
-	<color name="grey">#808080</color>
-	<color name="lightgrey">#EAEAEA</color>
-	<color name="lightgrey2">#C0C0C0</color>		
-	<color name="lightgrey3">#DCDCDC</color>		
+	<color name="grey">#808080</color>		
+	<color name="lightgrey">#DCDCDC</color>		
 	
 	<color name="pressed_green">#CC669900</color>
 	<color name="pressed_red">#CCc72a28</color>

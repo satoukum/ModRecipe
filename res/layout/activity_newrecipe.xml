@@ -30,6 +30,14 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
             
+            <RelativeLayout
+    			android:id="@+id/RelativeLayout2"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent"
+    			android:orientation="vertical"
+    			android:descendantFocusability="beforeDescendants"
+				android:focusableInTouchMode="true"  >
+	
             <EditText
                 android:id="@+id/editTextX"
                 android:minLines="2"
@@ -37,8 +45,19 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/NewRecipe_Name_Hint"
                 android:ems="10"
-                android:inputType="textMultiLine" >
-            </EditText>  
+                android:inputType="textMultiLine" />
+            
+            <ImageView
+            	android:id="@+id/pinBtn"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:layout_alignParentTop="true"
+            	android:layout_alignParentRight="true"
+            	android:background="@null"
+            	android:paddingLeft="15dp"
+            	android:paddingRight="15dp"
+            	android:src="@drawable/icon_camera" />
+            </RelativeLayout>  
 
             <TextView
                 android:id="@+id/textView3"

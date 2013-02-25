@@ -26,14 +26,14 @@
                     android:id="@+id/imageView1"
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
-                    android:src="@drawable/socialprofile2" />
+                    android:src="@drawable/socialprofile" />
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="557dp"
                     android:layout_below="@id/imageView1"
-                    android:src="@drawable/recipe_search2" />
+                    android:src="@drawable/recipe_search3" />
 
 
                 <TextView

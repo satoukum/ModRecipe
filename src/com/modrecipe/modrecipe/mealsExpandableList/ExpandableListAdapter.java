@@ -3,9 +3,9 @@ package com.modrecipe.modrecipe.mealsExpandableList;
 import java.util.ArrayList;
 
 import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.RecipeActivity;
 import com.modrecipe.modrecipe.R.id;
 import com.modrecipe.modrecipe.R.layout;
+import com.modrecipe.modrecipe.main.*;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -58,7 +59,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		
 		if (view == null) {
 			LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-			view = infalInflater.inflate(R.layout.expandlist_child_item, null);
+			view = infalInflater.inflate(R.layout.expandlist_child_item_meal, null);
 		}
 		final TextView tv = (TextView) view.findViewById(R.id.tvChild);
 		tv.setText(child.getName().toString());
@@ -95,10 +96,26 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		ExpandableListGroup group = (ExpandableListGroup) getGroup(groupPosition);
 		if (view == null) {
 			LayoutInflater inf = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-			view = inf.inflate(R.layout.expandlist_group_item, null);
+			view = inf.inflate(R.layout.expandlist_group_item_meal, null);
 		}
 		TextView tv = (TextView) view.findViewById(R.id.tvGroup);
 		tv.setText(group.getName());
+		
+		//gotoBtn
+		ImageView iv = (ImageView) view.findViewById(R.id.gotoBtn);
+		iv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            	Intent childActivityIntent = new Intent(v.getContext(),
+				RecipeActivity.class);
+				
+            	childActivityIntent.putExtra("recipe_imgsrc", R.drawable.recipe2);
+            	childActivityIntent.putExtra("allowpin", "true");
+            	v.getContext().startActivity(childActivityIntent);
+            }
+        });
+
+		
 		// TODO Auto-generated method stub
 		return view;
 	}

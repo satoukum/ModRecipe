@@ -15,10 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.modrecipe.modrecipe.NewRecipeActivity;
 import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.RecipeActivity;
 import com.modrecipe.modrecipe.adapters.ImageAdapter;
+import com.modrecipe.modrecipe.main.NewRecipeActivity;
+import com.modrecipe.modrecipe.main.RecipeActivity;
 
 /**
  * A dummy fragment representing a section of the app, but that simply

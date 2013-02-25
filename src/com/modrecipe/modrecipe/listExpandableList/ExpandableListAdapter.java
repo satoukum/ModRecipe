@@ -3,13 +3,13 @@ package com.modrecipe.modrecipe.listExpandableList;
 import java.util.ArrayList;
 
 import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.RecipeActivity;
 import com.modrecipe.modrecipe.R.id;
 import com.modrecipe.modrecipe.R.layout;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,7 +31,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		this.context = context;
 		this.groups = groups;
 	}
-	
+
 	public void addItem(ExpandableListChild item, ExpandableListGroup group) {
 		if (!groups.contains(group)) {
 			groups.add(group);
@@ -63,8 +63,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		}
 		final TextView tv = (TextView) view.findViewById(R.id.tvChild);
 		tv.setText(child.getName().toString());
+		
 		tv.setTag(child.getTag());
 		//System.out.println("child: " + child.getName() + "... is striked? " + child.getStriked());
+		
+		//if (childPosition != 1) {
+		//	tv.setCompoundDrawablesWithIntrinsicBounds((res.getDrawable(R.drawable.icon_pantry2_blank), null, null, null);
+		//}
+		//if (childPosition != 1) {
+			tv.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+		//}
+				
 		
 		// TODO fix up srikethrough to make less messy!!
 		if (child.isStriked()) {
@@ -91,7 +100,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             			}
             		}
             		if (moveToBottom) {
-            			//System.out.println("Need to figure out how to move down the list...");
+            			System.out.println("Need to figure out how to move down the list...");
             		}
             		
             	} else { // unstrike text

@@ -13,6 +13,7 @@
         android:textColor="@color/black"
         android:textSize="17dip" 
         android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:drawableLeft="@drawable/icon_pantry2"
     	android:paddingLeft="20dp"/>
 
 </LinearLayout>

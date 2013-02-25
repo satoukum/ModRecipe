@@ -17,7 +17,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.RecipeActivity;
 import com.modrecipe.modrecipe.mealsExpandableList.ExpandableListAdapter;
 import com.modrecipe.modrecipe.mealsExpandableList.ExpandableListChild;
 import com.modrecipe.modrecipe.mealsExpandableList.ExpandableListGroup;
