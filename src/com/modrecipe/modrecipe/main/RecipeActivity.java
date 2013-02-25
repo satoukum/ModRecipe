@@ -74,7 +74,7 @@ public class RecipeActivity extends Activity {
 					likeImgView.setImageResource(R.drawable.icon_heart);
 					likeImgView.setTag("checked");
 				} else {
-					likeImgView.setImageResource(R.drawable.icon_heart);
+					likeImgView.setImageResource(R.drawable.icon_heart_red);
 					likeImgView.setTag("unchecked");
 				}
 			}
@@ -91,7 +91,7 @@ public class RecipeActivity extends Activity {
 					pinImgView.setImageResource(R.drawable.icon_pin);
 					pinImgView.setTag("checked");
 				} else {
-					pinImgView.setImageResource(R.drawable.icon_pin);
+					pinImgView.setImageResource(R.drawable.icon_pin_red);
 					pinImgView.setTag("unchecked");
 				}
 			}
@@ -108,7 +108,7 @@ public class RecipeActivity extends Activity {
 					mealImgView.setImageResource(R.drawable.icon_meal);
 					mealImgView.setTag("checked");
 				} else {
-					mealImgView.setImageResource(R.drawable.icon_meal);
+					mealImgView.setImageResource(R.drawable.icon_meal_red);
 					mealImgView.setTag("unchecked");
 				}
 			}
@@ -125,7 +125,7 @@ public class RecipeActivity extends Activity {
 					modImgView.setImageResource(R.drawable.icon_edit);
 					modImgView.setTag("checked");
 				} else {
-					modImgView.setImageResource(R.drawable.icon_edit);
+					modImgView.setImageResource(R.drawable.icon_edit_red);
 					modImgView.setTag("unchecked");
 				}
 			}

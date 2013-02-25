@@ -25,11 +25,11 @@
         </activity>
         <activity android:name="com.modrecipe.modrecipe.main.RecipeActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value=".MainActivity" />
+                       android:value=".main.MainActivity" />
         </activity>
         <activity android:name="com.modrecipe.modrecipe.main.NewRecipeActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value=".MainActivity" />
+                       android:value=".main.MainActivity" />
         </activity>
     </application>
 
