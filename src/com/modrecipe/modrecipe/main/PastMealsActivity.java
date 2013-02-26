@@ -1,116 +1,80 @@
-package com.modrecipe.modrecipe.tabs;
+package com.modrecipe.modrecipe.main;
+
 
 import java.util.ArrayList;
 import java.util.List;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.main.PastMealsActivity;
-import com.modrecipe.modrecipe.main.RecipeActivity;
+import com.modrecipe.modrecipe.Up.ActionBarCompat;
 import com.modrecipe.modrecipe.mealshelpers.ExpandableListAdapter;
 import com.modrecipe.modrecipe.mealshelpers.ExpandableListChild;
 import com.modrecipe.modrecipe.mealshelpers.ExpandableListGroup;
-import com.modrecipe.modrecipe.mealshelpers.MealAddDialogFragment;
-import com.modrecipe.modrecipe.mealshelpers.MealClearDialogFragment;
 
-/**
- * A dummy fragment representing a section of the app, but that simply
- * displays dummy text.
- */
-public class MealsSectionFragment extends Fragment {
-	
-	public static final String ARG_SECTION_NUMBER = "section_number";
-	
-	public MealsSectionFragment() {
-		
-	}
-	
-	static View rootView;
-	
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.TwoLineListItem;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+import com.modrecipe.modrecipe.R;
+
+public class PastMealsActivity extends Activity {
+    int mNum;
+    
 	private ExpandableListAdapter ExpAdapter;
 	private ArrayList<ExpandableListGroup> ExpListItems = new ArrayList<ExpandableListGroup>();
-	private ExpandableListView ExpandList;
+	private ExpandableListView ExpandList;    
 	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-		rootView = inflater.inflate(R.layout.fragment_meals, container, false);
+	private ExpandableListAdapter ExpAdapter2;
+	private ArrayList<ExpandableListGroup> ExpListItems2 = new ArrayList<ExpandableListGroup>();
+	private ExpandableListView ExpandList2;   
+
+    /**
+     * When creating, retrieve this instance's number from its arguments.
+     */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         
-		ExpandList = (ExpandableListView) rootView.findViewById(R.id.ExpList2);
+        ActionBarCompat.setDisplayHomeAsUpEnabled(this, true); // Back button up top?
+        
+        //String allowpin = this.getIntent().getStringExtra("allowpin");
+
+        setContentView(R.layout.activity_pastmeals);
+        
+		ExpandList = (ExpandableListView) findViewById(R.id.ExpList3);
 		ExpListItems = SetStandardGroups();
-		ExpAdapter = new ExpandableListAdapter(this.getActivity(), ExpListItems); //??
+		ExpAdapter = new ExpandableListAdapter(this, ExpListItems); //??
 		ExpandList.setAdapter(ExpAdapter);
 		
-		// clear listener
-		ImageView clearBtn = (ImageView) rootView.findViewById(R.id.clearBtn);
-		clearBtn.setOnClickListener(new OnClickListener() {
+		ExpandList2 = (ExpandableListView) findViewById(R.id.ExpList4);
+		ExpListItems2 = SetStandardGroups2();
+		ExpAdapter2 = new ExpandableListAdapter(this, ExpListItems2); //??
+		ExpandList2.setAdapter(ExpAdapter2);
 
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				DialogFragment newFragment = new MealClearDialogFragment();
-			    newFragment.show(getFragmentManager(), "clear");
-		
-			}
-			
-		});
-		
-		// past listener
-		ImageView pastBtn = (ImageView) rootView.findViewById(R.id.pastBtn);
-		pastBtn.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				Intent childActivityIntent = new Intent(v.getContext(),
-						PastMealsActivity.class);
-						
-				//childActivityIntent.putExtra("allowpin", "true");
-				
-				v.getContext().startActivity(childActivityIntent);
-		
-			}
-			
-		});
-		
-		// add listener
-		ImageView addBtn = (ImageView) rootView.findViewById(R.id.addBtn);
-		addBtn.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				DialogFragment newFragment = new MealAddDialogFragment();
-			    newFragment.show(getFragmentManager(), "add");
-		
-			}
-			
-		});
-		
-		
-        return rootView;
+        
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
         }
-	
+        return super.onOptionsItemSelected(item);
+    }    
+        
     public ArrayList<ExpandableListGroup> SetStandardGroups() {
     	ArrayList<ExpandableListGroup> list = new ArrayList<ExpandableListGroup>();
     	ArrayList<ExpandableListChild> list2 = new ArrayList<ExpandableListChild>();
@@ -225,9 +189,27 @@ public class MealsSectionFragment extends Fragment {
         ch4_2.setTag(null);
         list2.add(ch4_2);
         gru4.setItems(list2);
-        list2 = new ArrayList<ExpandableListChild>();    
+        list2 = new ArrayList<ExpandableListChild>();     
         
-        ExpandableListGroup gru5 = new ExpandableListGroup();
+        list.add(gru1);
+        list.add(gru2);
+        list.add(gru3);
+        list.add(gru4);
+
+        //BREAKFAST & CEREAL
+        //BEVERAGES
+        //CANNED GOODS & SOUPS
+        //FROZEN ITEMS
+        //MEAT & SEAFOOD
+        
+        return list;
+    }	
+    
+    public ArrayList<ExpandableListGroup> SetStandardGroups2() {
+    	ArrayList<ExpandableListGroup> list = new ArrayList<ExpandableListGroup>();
+    	ArrayList<ExpandableListChild> list2 = new ArrayList<ExpandableListChild>();
+    	
+    	ExpandableListGroup gru5 = new ExpandableListGroup();
         gru5.setName("General Tso's Chicken");
         ExpandableListChild ch5_1 = new ExpandableListChild();
         ch5_1.setName("2 16 oz bags frozen Mixed Vegetables");
@@ -252,21 +234,33 @@ public class MealsSectionFragment extends Fragment {
         list2.add(ch6_2);
         gru6.setItems(list2);
         list2 = new ArrayList<ExpandableListChild>();    
+
+        ExpandableListGroup gru7 = new ExpandableListGroup();
+        gru7.setName("Chicken Alfredo");
+        ExpandableListChild ch7_1 = new ExpandableListChild();
+        ch7_1.setName("2 16 oz bags frozen Mixed Vegetables"); ch7_1.setTag(null); list2.add(ch7_1);
+        gru7.setItems(list2);
+        list2 = new ArrayList<ExpandableListChild>();
         
-        list.add(gru1);
-        list.add(gru2);
-        list.add(gru3);
-        list.add(gru4);
+        ExpandableListGroup gru8 = new ExpandableListGroup();
+        gru8.setName("Sweet and Sour Meatballs");
+        ExpandableListChild ch8_1 = new ExpandableListChild();
+        ch8_1.setName("2 10 3/4 oz can Campbell's Cream of Chicken Soup");
+        ch8_1.setTag(null);
+        list2.add(ch8_1);
+        ExpandableListChild ch8_2 = new ExpandableListChild();
+        ch8_2.setName("1 10 3/4 oz can Campbell's Cream of Mushroom Soup");
+        ch8_2.setTag(null);
+        list2.add(ch8_2);
+        gru8.setItems(list2);
+        list2 = new ArrayList<ExpandableListChild>(); 
+        
         list.add(gru5);        
         list.add(gru6);
-        
-        //BREAKFAST & CEREAL
-        //BEVERAGES
-        //CANNED GOODS & SOUPS
-        //FROZEN ITEMS
-        //MEAT & SEAFOOD
+        list.add(gru7);        
+        list.add(gru8);
         
         return list;
-    }	
-	
+    }
+    
 }

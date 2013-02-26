@@ -3,20 +3,26 @@ package com.modrecipe.modrecipe.tabs;
 import java.util.ArrayList;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.adapters.GroceryListAdapter;
-import com.modrecipe.modrecipe.listExpandableList.ExpandableListAdapter;
-import com.modrecipe.modrecipe.listExpandableList.ExpandableListChild;
-import com.modrecipe.modrecipe.listExpandableList.ExpandableListGroup;
+import com.modrecipe.modrecipe.listhelpers.ExpandableListAdapter;
+import com.modrecipe.modrecipe.listhelpers.ExpandableListChild;
+import com.modrecipe.modrecipe.listhelpers.ExpandableListGroup;
+import com.modrecipe.modrecipe.listhelpers.ListAddDialogFragment;
+import com.modrecipe.modrecipe.listhelpers.ListClearDialogFragment;
 import com.modrecipe.modrecipe.objects.Ingredient;
 
 /**
@@ -58,6 +64,38 @@ public class ListSectionFragment extends Fragment {
 		    //} else {
 				ExpandList.expandGroup(position - 1);
 		    //}
+		
+		// clear listener
+		ImageView clearBtn = (ImageView) rootView.findViewById(R.id.clearBtn);
+		clearBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// TODO find better way to change the text
+				DialogFragment newFragment = new ListClearDialogFragment();
+			    newFragment.show(getFragmentManager(), "clear");
+			}
+			
+		});		
+		
+		// add listener
+		ImageView addBtn = (ImageView) rootView.findViewById(R.id.addBtn);
+		addBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// TODO find better way to change the text
+				DialogFragment newFragment = new ListAddDialogFragment();
+			    newFragment.show(getFragmentManager(), "add");
+			}
+			
+		});		
+		
+		
+		
+		
         return rootView;
         }
 	

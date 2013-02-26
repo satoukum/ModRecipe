@@ -1,22 +1,21 @@
-package com.modrecipe.modrecipe.mealsExpandableList;
+package com.modrecipe.modrecipe.listhelpers;
 
 import java.util.ArrayList;
 
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.R.id;
 import com.modrecipe.modrecipe.R.layout;
-import com.modrecipe.modrecipe.main.*;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -32,7 +31,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		this.context = context;
 		this.groups = groups;
 	}
-	
+
 	public void addItem(ExpandableListChild item, ExpandableListGroup group) {
 		if (!groups.contains(group)) {
 			groups.add(group);
@@ -56,14 +55,60 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view,
 			ViewGroup parent) {
 		final ExpandableListChild child = (ExpandableListChild) getChild(groupPosition, childPosition);
+		child.setExpandableListGroup((ExpandableListGroup)getGroup(groupPosition));
 		
 		if (view == null) {
 			LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-			view = infalInflater.inflate(R.layout.expandlist_child_item_meal, null);
+			view = infalInflater.inflate(R.layout.list_expandlist_child_item, null);
 		}
 		final TextView tv = (TextView) view.findViewById(R.id.tvChild);
 		tv.setText(child.getName().toString());
+		
 		tv.setTag(child.getTag());
+		//System.out.println("child: " + child.getName() + "... is striked? " + child.getStriked());
+		
+		//if (childPosition != 1) {
+		//	tv.setCompoundDrawablesWithIntrinsicBounds((res.getDrawable(R.drawable.icon_pantry2_blank), null, null, null);
+		//}
+		//if (childPosition != 1) {
+			tv.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+		//}
+				
+		
+		// TODO fix up srikethrough to make less messy!!
+		if (child.isStriked()) {
+			tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+		} else {
+			tv.setPaintFlags( tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+		}
+		
+		// TODO Strikethrough feature
+		tv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            	if (!child.isStriked()) { // strike text
+            		tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            		
+            		child.setStrike(true);
+            		
+            		//TODO add method to collapse groups once everything is selected
+            		boolean moveToBottom = true;
+            		for (ExpandableListChild elc : child.getExpandableListGroup().getItems()) {
+            			if (!elc.isStriked()) {
+            				System.out.println("child striked: " + elc.isStriked());
+            				moveToBottom = false;
+            			}
+            		}
+            		if (moveToBottom) {
+            			System.out.println("Need to figure out how to move down the list...");
+            		}
+            		
+            	} else { // unstrike text
+            		tv.setPaintFlags( tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+            		child.setStrike(false);
+            	}
+            }
+        });
     		
 		// TODO Auto-generated method stub
 		return view;
@@ -96,26 +141,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		ExpandableListGroup group = (ExpandableListGroup) getGroup(groupPosition);
 		if (view == null) {
 			LayoutInflater inf = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-			view = inf.inflate(R.layout.expandlist_group_item_meal, null);
+			view = inf.inflate(R.layout.list_expandlist_group_item, null);
 		}
 		TextView tv = (TextView) view.findViewById(R.id.tvGroup);
 		tv.setText(group.getName());
-		
-		//gotoBtn
-		ImageView iv = (ImageView) view.findViewById(R.id.gotoBtn);
-		iv.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            	Intent childActivityIntent = new Intent(v.getContext(),
-				RecipeActivity.class);
-				
-            	childActivityIntent.putExtra("recipe_imgsrc", R.drawable.recipe2);
-            	childActivityIntent.putExtra("allowpin", "true");
-            	v.getContext().startActivity(childActivityIntent);
-            }
-        });
-
-		
 		// TODO Auto-generated method stub
 		return view;
 	}

@@ -13,8 +13,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:background="@null"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="20dp"
             android:src="@drawable/icon_heart" />
         
         <ImageView
@@ -24,8 +24,8 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/heartBtn"            
             android:background="@null"
-            android:paddingLeft="22dp"
-            android:paddingRight="22dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
             android:src="@drawable/icon_pin" />
         
         <ImageView
@@ -33,10 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/modBtn"            
+            android:layout_centerHorizontal="true"            
             android:background="@null"
-            android:paddingLeft="20dp"
-            android:paddingRight="22dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
             android:src="@drawable/icon_meal" />
         
         <ImageView
@@ -44,10 +44,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/shareBtn"
+            android:background="@null"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:src="@drawable/icon_edit" />
+        
+        <ImageView
+            android:id="@+id/shareBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:background="@null"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:src="@drawable/icon_edit" />
+            android:paddingLeft="20dp"
+            android:paddingRight="0dp"
+            android:src="@drawable/icon_share" />
 
     </RelativeLayout>

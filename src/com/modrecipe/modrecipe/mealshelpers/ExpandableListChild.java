@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.mealsExpandableList;
+package com.modrecipe.modrecipe.mealshelpers;
 
 public class ExpandableListChild {
 

@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.listExpandableList;
+package com.modrecipe.modrecipe.listhelpers;
 
 import java.util.ArrayList;
 
