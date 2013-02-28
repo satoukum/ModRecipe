@@ -19,7 +19,8 @@
     <string name="IsleLabel"><u>FRUITS &amp; VEGETABLES</u></string>
     <string name="FoodLabel">White Onion</string>
     
-    
+    <string name="meals_past_text1"><u>Cleared on March 2, 2013</u></string>
+    <string name="meals_past_text2"><u>Cleared on February 16, 2013</u></string>
     
     <string name="NewRecipe_Name">Recipe Name</string>
     <string name="NewRecipe_Ingredients">Ingredients</string>

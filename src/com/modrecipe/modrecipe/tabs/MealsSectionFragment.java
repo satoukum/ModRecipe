@@ -22,10 +22,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.main.PastMealsActivity;
 import com.modrecipe.modrecipe.mealshelpers.MealExpandableListAdapter;
 import com.modrecipe.modrecipe.mealshelpers.MealAddDialogFragment;
 import com.modrecipe.modrecipe.mealshelpers.MealClearDialogFragment;
+import com.modrecipe.modrecipe.mealshelpers.MealPastDialogFragment;
 import com.modrecipe.modrecipe.objects.DataSingleton;
 import com.modrecipe.modrecipe.objects.Recipe;
 
@@ -79,12 +79,8 @@ public class MealsSectionFragment extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				Intent childActivityIntent = new Intent(v.getContext(),
-						PastMealsActivity.class);
-						
-				//childActivityIntent.putExtra("allowpin", "true");
-				
-				v.getContext().startActivity(childActivityIntent);
+				DialogFragment newFragment = new MealPastDialogFragment();
+			    newFragment.show(getFragmentManager(), "Past Meals");
 		
 			}
 			

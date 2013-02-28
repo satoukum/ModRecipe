@@ -30,6 +30,10 @@ public class Recipe implements Serializable {
 		//do nothing
 	}
 	
+	public Recipe(String string) {
+		this.Name = string;
+	}
+
 	public String getName() {
 		return Name;
 	}
