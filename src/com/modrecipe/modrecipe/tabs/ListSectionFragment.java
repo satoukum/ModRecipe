@@ -18,8 +18,6 @@ import android.widget.TextView;
 
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.listhelpers.ExpandableListAdapter;
-import com.modrecipe.modrecipe.listhelpers.Ingredient1;
-import com.modrecipe.modrecipe.listhelpers.Recipe1;
 import com.modrecipe.modrecipe.listhelpers.ListAddDialogFragment;
 import com.modrecipe.modrecipe.listhelpers.ListClearDialogFragment;
 import com.modrecipe.modrecipe.objects.DataSingleton;
