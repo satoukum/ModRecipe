@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.listhelpers.ExpandableListAdapter;
+import com.modrecipe.modrecipe.listhelpers.ListExpandableListAdapter;
 import com.modrecipe.modrecipe.listhelpers.ListAddDialogFragment;
 import com.modrecipe.modrecipe.listhelpers.ListClearDialogFragment;
 import com.modrecipe.modrecipe.objects.DataSingleton;
@@ -40,12 +40,7 @@ public class ListSectionFragment extends Fragment {
 	
 	private ListView listView1;
 	static View rootView;
-/**	
-	private ExpandableListAdapter ExpAdapter;
-	private static ArrayList<Recipe1> ExpListItems = new ArrayList<Recipe1>();
-	private ExpandableListView ExpandList;
-*/
-	private ExpandableListAdapter ExpAdapter;
+
 	private static ArrayList<ShoppingCategory> ExpListItems = new ArrayList<ShoppingCategory>();
 	private ExpandableListView ExpandList;
 
@@ -58,11 +53,11 @@ public class ListSectionFragment extends Fragment {
 		//TODO find a better solution
 		ExpandList = (ExpandableListView) rootView.findViewById(R.id.ExpList);
 		ExpListItems = DataSingleton.getInstance().getUser().getShoppingList(); //SetIngredients(); //SetStandardGroups();
-		ExpAdapter = new ExpandableListAdapter(this.getActivity(), ExpListItems); //??
-		ExpandList.setAdapter(ExpAdapter);
+		DataSingleton.getInstance().setListExpAdapter(new ListExpandableListAdapter(this.getActivity(), ExpListItems)); //??
+		ExpandList.setAdapter(DataSingleton.getInstance().getListExpAdapter()); // TODO!!
 		
 		//TODO make less tacky
-		int count = ExpAdapter.getGroupCount();
+		int count = DataSingleton.getInstance().getListExpAdapter().getGroupCount();
 		for (int position = 1; position <= count; position++)
 		    //if (position == 2) { //TODO fix section
 		    //	ExpandList.collapseGroup(position - 1);
@@ -76,8 +71,6 @@ public class ListSectionFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				// TODO find better way to change the text
 				DialogFragment newFragment = new ListClearDialogFragment();
 			    newFragment.show(getFragmentManager(), "clear");
 			}

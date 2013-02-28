@@ -26,11 +26,11 @@ import android.widget.TextView;
  * 
  *
  */
-public class ExpandableListAdapter extends BaseExpandableListAdapter {
+public class MealExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
 	private ArrayList<Recipe> groups;
-	public ExpandableListAdapter(Context context, ArrayList<Recipe> groups) {
+	public MealExpandableListAdapter(Context context, ArrayList<Recipe> groups) {
 		this.context = context;
 		this.groups = groups;
 	}
@@ -95,7 +95,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	public View getGroupView(int groupPosition, boolean isLastChild, View view,
 			ViewGroup parent) {
-		Recipe group = (Recipe) getGroup(groupPosition);
+		final Recipe group = (Recipe) getGroup(groupPosition);
 		if (view == null) {
 			LayoutInflater inf = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			view = inf.inflate(R.layout.meal_expandlist_group_item, null);
@@ -111,7 +111,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             	Intent childActivityIntent = new Intent(v.getContext(),
 				RecipeActivity.class);
 				
-            	childActivityIntent.putExtra("recipe_imgsrc", R.drawable.recipe2);
+            	childActivityIntent.putExtra("recipe_imgsrc", group.getImageResource());
             	childActivityIntent.putExtra("allowpin", "true");
             	v.getContext().startActivity(childActivityIntent);
             }

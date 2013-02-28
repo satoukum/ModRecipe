@@ -32,19 +32,19 @@
 	        android:background="@color/transparent" /> 	        
 	    
 		<Button
-	        android:id="@+id/clearAllBtn"
+	        android:id="@+id/csiBtn"
 	        android:layout_width="300dp"
 	        android:layout_height="wrap_content"
 	        android:text="Clear Striked Items" />
 		
 	    <Button
-	        android:id="@+id/clearAllBtn"
+	        android:id="@+id/cliamBtn"
 	        android:layout_width="300dp"
 	        android:layout_height="wrap_content"
 	        android:text="Clear List Items and Meals" />
 
 	    <Button
-	        android:id="@+id/clearSomeBtn"
+	        android:id="@+id/clibkmBtn"
 	        android:layout_width="300dp"
 	        android:layout_height="wrap_content"
 	        android:text="Clear List Items, but Keep Meals" />

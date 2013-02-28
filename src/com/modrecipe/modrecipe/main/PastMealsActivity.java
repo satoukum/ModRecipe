@@ -4,7 +4,7 @@ package com.modrecipe.modrecipe.main;
 import java.util.ArrayList;
 import java.util.List;
 import com.modrecipe.modrecipe.Up.ActionBarCompat;
-import com.modrecipe.modrecipe.mealshelpers.ExpandableListAdapter;
+import com.modrecipe.modrecipe.mealshelpers.MealExpandableListAdapter;
 import com.modrecipe.modrecipe.objects.*;
 
 import android.app.Activity;
@@ -31,11 +31,11 @@ import com.modrecipe.modrecipe.R;
 public class PastMealsActivity extends Activity {
     int mNum;
     
-	private ExpandableListAdapter ExpAdapter;
+	private MealExpandableListAdapter ExpAdapter;
 	private ArrayList<Ingredient> ExpListItems = new ArrayList<Ingredient>();
 	private ExpandableListView ExpandList;    
 	
-	private ExpandableListAdapter ExpAdapter2;
+	private MealExpandableListAdapter ExpAdapter2;
 	private ArrayList<Ingredient> ExpListItems2 = new ArrayList<Ingredient>();
 	private ExpandableListView ExpandList2;   
 

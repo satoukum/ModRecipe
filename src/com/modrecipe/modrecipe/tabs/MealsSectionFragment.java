@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.main.PastMealsActivity;
-import com.modrecipe.modrecipe.mealshelpers.ExpandableListAdapter;
+import com.modrecipe.modrecipe.mealshelpers.MealExpandableListAdapter;
 import com.modrecipe.modrecipe.mealshelpers.MealAddDialogFragment;
 import com.modrecipe.modrecipe.mealshelpers.MealClearDialogFragment;
 import com.modrecipe.modrecipe.objects.DataSingleton;
@@ -42,12 +42,7 @@ public class MealsSectionFragment extends Fragment {
 	}
 	
 	static View rootView;
-/**	
-	private ExpandableListAdapter ExpAdapter;
-	private ArrayList<ExpandableListGroup> ExpListItems = new ArrayList<ExpandableListGroup>();
-	private ExpandableListView ExpandList;
-	*/
-	private ExpandableListAdapter ExpAdapter;
+
 	private ArrayList<Recipe> ExpListItems = new ArrayList<Recipe>();
 	private ExpandableListView ExpandList;
 	
@@ -58,8 +53,8 @@ public class MealsSectionFragment extends Fragment {
         
 		ExpandList = (ExpandableListView) rootView.findViewById(R.id.ExpList2);
 		ExpListItems = DataSingleton.getInstance().getUser().getMealRecipesList(); //SetStandardGroups();
-		ExpAdapter = new ExpandableListAdapter(this.getActivity(), ExpListItems); //??
-		ExpandList.setAdapter(ExpAdapter);
+		DataSingleton.getInstance().setMealExpAdapter(new MealExpandableListAdapter(this.getActivity(), ExpListItems)); //??
+		ExpandList.setAdapter(DataSingleton.getInstance().getMealExpAdapter());
 		
 		// clear listener
 		ImageView clearBtn = (ImageView) rootView.findViewById(R.id.clearBtn);

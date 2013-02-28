@@ -32,6 +32,7 @@
             android:background="@color/transparent" />
 
         <EditText
+            android:id="@+id/itemEditText"
             android:layout_width="300dp"
             android:layout_height="match_parent" />
 

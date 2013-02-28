@@ -1,6 +1,11 @@
 package com.modrecipe.modrecipe.objects;
 
 import java.util.ArrayList;
+import java.util.UUID;
+
+import com.modrecipe.modrecipe.R;
+import com.modrecipe.modrecipe.listhelpers.ListExpandableListAdapter;
+import com.modrecipe.modrecipe.mealshelpers.MealExpandableListAdapter;
 
 public class DataSingleton {
 
@@ -19,6 +24,25 @@ public class DataSingleton {
 		} 
 		return instance; 
 	}
+	
+	// On List Section Fragment, This is the Expandable List Adapter
+	private ListExpandableListAdapter ExpListAdapter;
+	public ListExpandableListAdapter getListExpAdapter() {
+		return ExpListAdapter;
+	}
+	public void setListExpAdapter(ListExpandableListAdapter ExpListAdapter) {
+		this.ExpListAdapter = ExpListAdapter;
+	}
+	
+	// On Meal Section Fragment, This is the Expandable List Adapter
+	private MealExpandableListAdapter ExpMealAdapter;
+	public MealExpandableListAdapter getMealExpAdapter() {
+		return ExpMealAdapter;
+	}
+	public void setMealExpAdapter(MealExpandableListAdapter ExpMealAdapter) {
+		this.ExpMealAdapter = ExpMealAdapter;
+	}	
+
 	
 	public void setUser(User user){
 		this.user = user;
@@ -75,7 +99,16 @@ public static void setShoppingList() {
 	shoppingList.add(sc);
 	
 	sc = new ShoppingCategory("FROZEN ITEMS");
-	sc.setNumber(1);
+	sc.setNumber(7);	
+	shoppingList.add(sc);
+	
+	sc = new ShoppingCategory("OTHER");
+	sc.setNumber(8);
+	shoppingList.add(sc);
+	
+	sc = new ShoppingCategory("REGULAR ITEMS");
+	sc.setNumber(9);
+	sc.addIngredient(new Ingredient("1 gal. Milk")); // TODO allow user to pick...	
 	shoppingList.add(sc);
 	
 }
@@ -109,7 +142,7 @@ private static ArrayList<Ingredient> setFakeIngredients1() {
 	fakeIngredients.add(i);
 	i = new Ingredient("1 c. Rice"); i.setCategory("SPICES & BAKING");
 	fakeIngredients.add(i);
-	i = new Ingredient("3 Breasts of Chicken"); i.setCategory("MEAT & SEAFOOD");
+	i = new Ingredient("3 Chicken Breasts"); i.setCategory("MEAT & SEAFOOD");
 	fakeIngredients.add(i);	
 	
 	for (Ingredient ingre : fakeIngredients) {
@@ -165,25 +198,23 @@ private static ArrayList<Ingredient> setFakeIngredients2() {
 	
 	return fakeIngredients;
 }
-/**
-private ArrayList<Ingredient> setFakeIngredients3() {
+
+private static ArrayList<Ingredient> setFakeIngredients3() {
 	
 	fakeIngredients = new ArrayList<Ingredient>();
-	Ingredient i = new Ingredient("1/2 Green Bell Pepper"); i.setCategory("FRUITS & VEGETABLES");
+	Ingredient i = new Ingredient("1 can Cream of Chicken Soup"); i.setCategory("CANNED GOODS & SOUPS");
 	fakeIngredients.add(i);
-	i = new Ingredient("1/2 Red Bell Pepper"); i.setCategory("FRUITS & VEGETABLES");
+	i = new Ingredient("1 can Cream of Mushroom Soup"); i.setCategory("CANNED GOODS & SOUPS");
 	fakeIngredients.add(i);
-	i = new Ingredient("1 15 oz can Pineapple Tidbits"); i.setCategory("CANNED GOODS & SOUPS");
+	i = new Ingredient("1/2 c. White Onion"); i.setCategory("FRUITS & VEGETABLES");
+	fakeIngredients.add(i);	
+	i = new Ingredient("1 pkg. Pie Shells"); i.setCategory("FROZEN ITEMS");
 	fakeIngredients.add(i);
-	i = new Ingredient("1/2 c. Yellow Onion"); i.setCategory("FRUITS & VEGETABLES");
+	i = new Ingredient("1/2 c. Miracle Whip"); i.setCategory("CONDIMENTS");
 	fakeIngredients.add(i);
-	i = new Ingredient("1 10 oz bottle Italian dressing"); i.setCategory("CONDIMENTS");
+	i = new Ingredient("1 bag Frozen Mixed Vegetables"); i.setCategory("FROZEN ITEMS");
 	fakeIngredients.add(i);
-	i = new Ingredient("1 10 oz jar Approcot jam"); i.setCategory("CONDIMENTS");
-	fakeIngredients.add(i);
-	i = new Ingredient("1 c. Rice"); i.setCategory("SPICES & BAKING");
-	fakeIngredients.add(i);
-	i = new Ingredient("2 Breasts of Chicken"); i.setCategory("MEAT & SEAFOOD");
+	i = new Ingredient("2 Chicken Breasts"); i.setCategory("MEAT & SEAFOOD");
 	fakeIngredients.add(i);	
 	
 	for (Ingredient ingre : fakeIngredients) {    		
@@ -196,7 +227,7 @@ private ArrayList<Ingredient> setFakeIngredients3() {
 	
 	return fakeIngredients;
 }
-*/   
+   
 private static ArrayList<Ingredient> setFakeIngredients6() {
 	
 	fakeIngredients = new ArrayList<Ingredient>();
@@ -214,7 +245,7 @@ private static ArrayList<Ingredient> setFakeIngredients6() {
 	fakeIngredients.add(i);
 	i = new Ingredient("1 c. Rice"); i.setCategory("SPICES & BAKING");
 	fakeIngredients.add(i);
-	i = new Ingredient("2 Breasts of Chicken"); i.setCategory("MEAT & SEAFOOD");
+	i = new Ingredient("2 Chicken Breasts"); i.setCategory("MEAT & SEAFOOD");
 	fakeIngredients.add(i);	
 	
 	for (Ingredient ingre : fakeIngredients) {    		
@@ -233,9 +264,11 @@ private static ArrayList setMeals() {
 	ArrayList<Recipe> meals = new ArrayList<Recipe>();
 	
 	Recipe r = new Recipe();
+	r.setUUID(java.util.UUID.fromString("c4a32e87-f664-439a-a6f9-da3e4af81f39"));
+	r.setImageResource(R.drawable.recipe_broccolichickendivan);
 	r.setDirectionsList(setFakeDirections1());
 	r.setIngredientList(setFakeIngredients1());
-	r.setName("Chicken Divan");
+	r.setName("Broccoli Chicken Divan");
 	r.setReadyInHours(1);
 	r.setReadyInMinutes(30);
 	r.setServings(4);
@@ -243,6 +276,8 @@ private static ArrayList setMeals() {
 	meals.add(r);
 	
 	r = new Recipe();
+	r.setUUID(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f"));
+	r.setImageResource(R.drawable.recipe_sweetandsourmeatballs);
 	r.setDirectionsList(setFakeDirections1());
 	r.setIngredientList(setFakeIngredients2());
 	r.setName("Sweet and Sour Meatballs");
@@ -253,9 +288,11 @@ private static ArrayList setMeals() {
 	meals.add(r);
 	
 	r = new Recipe();
+	r.setUUID(java.util.UUID.fromString("e7a004cf-a110-4652-9dd2-ac2cea285feb"));
+	r.setImageResource(R.drawable.recipe_easychickenpotpie);
 	r.setDirectionsList(setFakeDirections1());
-	r.setIngredientList(setFakeIngredients1());//3
-	r.setName("Chicken Pot Pie");
+	r.setIngredientList(setFakeIngredients3());
+	r.setName("Easy Chicken Pot Pie");
 	r.setReadyInHours(1);
 	r.setReadyInMinutes(30);
 	r.setServings(4);
@@ -263,6 +300,7 @@ private static ArrayList setMeals() {
 	meals.add(r);
 /**
 	r = new Recipe();
+	r.setUUID(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f"));
 	r.setDirectionsList(setFakeDirections1());
 	r.setIngredientList(setFakeIngredients1());
 	r.setName("General Tso's Chicken");
@@ -273,6 +311,7 @@ private static ArrayList setMeals() {
 	meals.add(r);
 
 	r = new Recipe();
+	r.setUUID(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f"));
 	r.setDirectionsList(setFakeDirections1());
 	r.setIngredientList(setFakeIngredients1());
 	r.setName("BBQ Chicken Pizza");
@@ -283,6 +322,8 @@ private static ArrayList setMeals() {
 	meals.add(r);
 */    	
 	r = new Recipe();
+	r.setUUID(java.util.UUID.fromString("968e212f-a7e4-4fa6-98b8-dece3bcf1eda"));
+	r.setImageResource(R.drawable.recipe_sweetandsourchicken);
 	r.setDirectionsList(setFakeDirections1());
 	r.setIngredientList(setFakeIngredients6());
 	r.setName("Sweet and Sour Chicken");

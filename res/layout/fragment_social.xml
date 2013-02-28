@@ -7,19 +7,12 @@
     <ScrollView
         android:id="@+id/ScrollView01"
         android:layout_width="fill_parent"
-        android:layout_height="110px"
-        android:layout_weight="1.14" >
+        android:layout_height="fill_parent" >
 
-        <LinearLayout 
-            android:id="@+id/LinearLayout01"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
-
-
-            <RelativeLayout 
+            <LinearLayout 
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
 
 
                 <ImageView
@@ -28,26 +21,31 @@
                     android:layout_height="200dp"
                     android:src="@drawable/socialprofile" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="557dp"
-                    android:layout_below="@id/imageView1"
-                    android:src="@drawable/recipe_search3" />
-
-
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imageView1"
-                    android:layout_centerHorizontal="true"
-                    android:text="People You Follow"
+                    android:gravity="center_horizontal"
+                    android:text="See What Those You Follow Are Preparing"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            </RelativeLayout>
+        		<com.modrecipe.modrecipe.searchhelpers.ExpandableHeightGridView
+        			android:id="@+id/followingGridView"
+        			android:layout_width="wrap_content"
+        			android:layout_height="wrap_content"
+        			android:layout_below="@+id/textView1"
+        			android:columnWidth="90dp"
+        			android:gravity="center"
+        			android:horizontalSpacing="10dp"
+        			android:isScrollContainer="false"
+        			android:numColumns="2"
+        			android:stretchMode="columnWidth"
+        			android:verticalSpacing="10dp" >
+    			</com.modrecipe.modrecipe.searchhelpers.ExpandableHeightGridView>
+
+            </LinearLayout>
             
-        </LinearLayout>
     </ScrollView>
     
 </LinearLayout>

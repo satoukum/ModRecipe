@@ -25,11 +25,11 @@ import android.widget.TextView;
  * 
  *
  */
-public class ExpandableListAdapter extends BaseExpandableListAdapter {
+public class ListExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
 	private ArrayList<ShoppingCategory> groups;
-	public ExpandableListAdapter(Context context, ArrayList<ShoppingCategory> groups) {
+	public ListExpandableListAdapter(Context context, ArrayList<ShoppingCategory> groups) {
 		this.context = context;
 		this.groups = groups;
 	}
