@@ -1,9 +1,16 @@
 package com.modrecipe.modrecipe.main;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.Up.ActionBarCompat;
+import com.modrecipe.modrecipe.objects.DataSingleton;
+import com.modrecipe.modrecipe.objects.Ingredient;
+import com.modrecipe.modrecipe.objects.Recipe;
+import com.modrecipe.modrecipe.objects.ShoppingCategory;
+import com.modrecipe.modrecipe.objects.User;
 import com.modrecipe.modrecipe.tabs.*;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -91,6 +98,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+        
     }
 
     @Override
@@ -128,7 +136,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @Override
         public Fragment getItem(int i) {
         	Fragment fragment = new DummySectionFragment();
-            Bundle args = new Bundle();
+            Bundle args = new Bundle(); // TODO put stuff in bundle?
             	
           	switch (i) {
            		case 0: fragment = new SearchSectionFragment();

@@ -2,10 +2,10 @@ package com.modrecipe.modrecipe.listhelpers;
 
 import java.util.ArrayList;
 
-public class ExpandableListGroup {
+public class Recipe1 {
  
 	private String Name;
-	private ArrayList<ExpandableListChild> Items;
+	private ArrayList<Ingredient1> Items;
 	
 	public String getName() {
 		return Name;
@@ -13,10 +13,10 @@ public class ExpandableListGroup {
 	public void setName(String name) {
 		this.Name = name;
 	}
-	public ArrayList<ExpandableListChild> getItems() {
+	public ArrayList<Ingredient1> getItems() {
 		return Items;
 	}
-	public void setItems(ArrayList<ExpandableListChild> Items) {
+	public void setItems(ArrayList<Ingredient1> Items) {
 		this.Items = Items;
 	}
 	

@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.adapters;
+package com.modrecipe.modrecipe.searchhelpers;
 
 import com.modrecipe.modrecipe.objects.Ingredient;
 
@@ -47,7 +47,7 @@ public class GroceryListAdapter extends ArrayAdapter<Ingredient>{
         }
         
         Ingredient ingredient= data[position];
-        holder.txtTitle.setText(ingredient.title);
+        holder.txtTitle.setText(ingredient.Title);
         //holder.imgIcon.setImageResource(ingredient.icon);
         
         return row;

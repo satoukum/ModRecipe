@@ -16,9 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.modrecipe.modrecipe.R;
-import com.modrecipe.modrecipe.adapters.ImageAdapter;
 import com.modrecipe.modrecipe.main.NewRecipeActivity;
 import com.modrecipe.modrecipe.main.RecipeActivity;
+import com.modrecipe.modrecipe.searchhelpers.ImageAdapter;
 
 /**
  * A dummy fragment representing a section of the app, but that simply

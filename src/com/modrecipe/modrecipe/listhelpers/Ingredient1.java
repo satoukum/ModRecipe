@@ -1,11 +1,11 @@
 package com.modrecipe.modrecipe.listhelpers;
 
-public class ExpandableListChild {
+public class Ingredient1 {
 
 	private String Name;
 	private String Tag;
 	private boolean Striked;
-	private ExpandableListGroup Elg;
+	private Recipe1 Elg;
 	
 	public String getName() {
 		return Name;
@@ -19,10 +19,10 @@ public class ExpandableListChild {
 	public void setStrike(boolean striked) {
 		this.Striked = striked;
 	}
-	public ExpandableListGroup getExpandableListGroup() {
+	public Recipe1 getExpandableListGroup() {
 		return Elg;
 	}
-	public void setExpandableListGroup(ExpandableListGroup elg) {
+	public void setExpandableListGroup(Recipe1 elg) {
 		this.Elg = elg;
 	}
 	public String getTag() {

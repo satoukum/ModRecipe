@@ -1,4 +1,4 @@
-package com.modrecipe.modrecipe.adapters;
+package com.modrecipe.modrecipe.searchhelpers;
 
 import com.modrecipe.modrecipe.R;
 import android.content.Context;

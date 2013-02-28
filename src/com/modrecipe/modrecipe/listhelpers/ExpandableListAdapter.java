@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.R.id;
 import com.modrecipe.modrecipe.R.layout;
+import com.modrecipe.modrecipe.objects.Ingredient;
+import com.modrecipe.modrecipe.objects.ShoppingCategory;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,24 +28,24 @@ import android.widget.TextView;
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
-	private ArrayList<ExpandableListGroup> groups;
-	public ExpandableListAdapter(Context context, ArrayList<ExpandableListGroup> groups) {
+	private ArrayList<ShoppingCategory> groups;
+	public ExpandableListAdapter(Context context, ArrayList<ShoppingCategory> groups) {
 		this.context = context;
 		this.groups = groups;
 	}
 
-	public void addItem(ExpandableListChild item, ExpandableListGroup group) {
+	public void addItem(Ingredient item, ShoppingCategory group) {
 		if (!groups.contains(group)) {
 			groups.add(group);
 		}
 		int index = groups.indexOf(group);
-		ArrayList<ExpandableListChild> ch = groups.get(index).getItems();
+		ArrayList<Ingredient> ch = groups.get(index).getIngredientList();
 		ch.add(item);
-		groups.get(index).setItems(ch);
+		groups.get(index).setIngredientList(ch);
 	}
 	public Object getChild(int groupPosition, int childPosition) {
 		// TODO Auto-generated method stub
-		ArrayList<ExpandableListChild> chList = groups.get(groupPosition).getItems();
+		ArrayList<Ingredient> chList = groups.get(groupPosition).getIngredientList();
 		return chList.get(childPosition);
 	}
 
@@ -54,19 +56,19 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view,
 			ViewGroup parent) {
-		final ExpandableListChild child = (ExpandableListChild) getChild(groupPosition, childPosition);
-		child.setExpandableListGroup((ExpandableListGroup)getGroup(groupPosition));
+		final Ingredient child = (Ingredient) getChild(groupPosition, childPosition);
+		child.setCategory(((ShoppingCategory)getGroup(groupPosition)).toString());
 		
 		if (view == null) {
 			LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			view = infalInflater.inflate(R.layout.list_expandlist_child_item, null);
 		}
 		final TextView tv = (TextView) view.findViewById(R.id.tvChild);
-		tv.setText(child.getName().toString());
+		tv.setText(child.toString());
 		
 		tv.setTag(child.getTag());
-		//System.out.println("child: " + child.getName() + "... is striked? " + child.getStriked());
 		
+		// TODO Pantry Feature
 		//if (childPosition != 1) {
 		//	tv.setCompoundDrawablesWithIntrinsicBounds((res.getDrawable(R.drawable.icon_pantry2_blank), null, null, null);
 		//}
@@ -76,7 +78,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				
 		
 		// TODO fix up srikethrough to make less messy!!
-		if (child.isStriked()) {
+		if (child.Striked) {
 			tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 		} else {
 			tv.setPaintFlags( tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
@@ -86,14 +88,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		tv.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-            	if (!child.isStriked()) { // strike text
+            	if (!child.Striked) { // strike text
             		tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             		
-            		child.setStrike(true);
-            		
+            		child.setStriked(true);
+/**            		
             		//TODO add method to collapse groups once everything is selected
             		boolean moveToBottom = true;
-            		for (ExpandableListChild elc : child.getExpandableListGroup().getItems()) {
+            		for (Ingredient1 elc : child.getCategory().getItems()) {
             			if (!elc.isStriked()) {
             				System.out.println("child striked: " + elc.isStriked());
             				moveToBottom = false;
@@ -102,10 +104,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             		if (moveToBottom) {
             			System.out.println("Need to figure out how to move down the list...");
             		}
-            		
+*/            		
             	} else { // unstrike text
             		tv.setPaintFlags( tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
-            		child.setStrike(false);
+            		child.setStriked(false);
             	}
             }
         });
@@ -116,7 +118,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	public int getChildrenCount(int groupPosition) {
 		// TODO Auto-generated method stub
-		ArrayList<ExpandableListChild> chList = groups.get(groupPosition).getItems();
+		ArrayList<Ingredient> chList = groups.get(groupPosition).getIngredientList();
 		return chList.size();
 
 	}
@@ -138,7 +140,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	public View getGroupView(int groupPosition, boolean isLastChild, View view,
 			ViewGroup parent) {
-		ExpandableListGroup group = (ExpandableListGroup) getGroup(groupPosition);
+		ShoppingCategory group = (ShoppingCategory) getGroup(groupPosition);
 		if (view == null) {
 			LayoutInflater inf = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			view = inf.inflate(R.layout.list_expandlist_group_item, null);
