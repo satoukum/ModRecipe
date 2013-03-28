@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.R.id;
 import com.modrecipe.modrecipe.R.layout;
+import com.modrecipe.modrecipe.objects.DataSingleton;
 import com.modrecipe.modrecipe.objects.Ingredient;
 import com.modrecipe.modrecipe.objects.ShoppingCategory;
 
@@ -76,8 +77,7 @@ public class ListExpandableListAdapter extends BaseExpandableListAdapter {
 			tv.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
 		//}
 				
-		
-		// TODO fix up srikethrough to make less messy!!
+		// Allows user to "strike" off items after they've been found
 		if (child.Striked) {
 			tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 		} else {
@@ -88,31 +88,28 @@ public class ListExpandableListAdapter extends BaseExpandableListAdapter {
 		tv.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+            	
             	if (!child.Striked) { // strike text
             		tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            		
             		child.setStriked(true);
-/**            		
-            		//TODO add method to collapse groups once everything is selected
-            		boolean moveToBottom = true;
-            		for (Ingredient1 elc : child.getCategory().getItems()) {
-            			if (!elc.isStriked()) {
-            				System.out.println("child striked: " + elc.isStriked());
-            				moveToBottom = false;
-            			}
-            		}
-            		if (moveToBottom) {
-            			System.out.println("Need to figure out how to move down the list...");
-            		}
-*/            		
+            		
+            		// Still buggy, but good enough
+            		// Moves ShoppingCategory group to the bottom of the list
+            		// if all the items in that group have been striked.
+            		DataSingleton.getInstance().checkGroupToBottom(child);
+            		
             	} else { // unstrike text
             		tv.setPaintFlags( tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
             		child.setStriked(false);
+            		
+            		// Still buggy, but good enough
+            		// Moves ShoppingCategory group back to the top 
+            		// if item unclicked and the group was on the bottom
+            		DataSingleton.getInstance().checkGroupToTop(child);
             	}
             }
         });
     		
-		// TODO Auto-generated method stub
 		return view;
 	}
 

@@ -353,5 +353,67 @@ private static ArrayList<Ingredient> setFakeIngredients6() {
 	return fakeIngredients;
 }
 
+/**
+ * Collapse groups once everything is selected:
+   If the ingredient just striked is the last one in that category,
+   move that shopping category to the end of the list.
+ * @param child
+ * @param scList
+ */
+public void checkGroupToBottom(Ingredient child) {
+	ArrayList<ShoppingCategory> scList = getUser().getShoppingList();
+	boolean moveToBottom = true;
+	for (ShoppingCategory sc : scList) {
+		if (sc.getName().equals(child.getCategory())) {
+			for (Ingredient elc : sc.getIngredientList()) {
+				if (!elc.getStriked()) {
+    				moveToBottom = false;
+    			}
+			}
+		}
+	}
+	if (moveToBottom) {
+		ShoppingCategory removeMe = null;
+		for (ShoppingCategory sc : scList) {
+			if (sc.getName().equals(child.getCategory())) {
+				removeMe = sc;
+				removeMe.setBottom(true);
+			}
+		}
+		scList.remove(removeMe);
+		scList.add(removeMe);
+		DataSingleton.getInstance().getListExpAdapter().notifyDataSetChanged();
+	}
+}
+/**
+ * Moves ShoppingCategory group back to the top 
+   if item unclicked and the group was on the bottom
+ * @param child
+ * @param scList
+ */
+public void checkGroupToTop(Ingredient child) {
+	ArrayList<ShoppingCategory> scList = getUser().getShoppingList();
+	
+	boolean moveToTop = false;
+	for (ShoppingCategory sc : scList) {
+		if (sc.getName().equals(child.getCategory())) {
+			if (sc.getBottom() == true) {
+				moveToTop = true;
+			}
+		}
+	}
+	if (moveToTop) {
+		ShoppingCategory moveMeUp = null;
+		for (ShoppingCategory sc : scList) {
+			if (sc.getName().equals(child.getCategory())) {
+				moveMeUp = sc;
+				moveMeUp.setBottom(false);
+			}
+		}
+		scList.remove(moveMeUp);
+		scList.add(0, moveMeUp);
+		DataSingleton.getInstance().getListExpAdapter().notifyDataSetChanged();
+	}
+}
 	
 }

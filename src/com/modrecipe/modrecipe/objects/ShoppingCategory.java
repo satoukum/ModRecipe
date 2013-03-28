@@ -10,6 +10,7 @@ public class ShoppingCategory implements Serializable {
 	public String Name; // Category Name
     public int number;
     public ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>();
+    public boolean bottom = false;
 
     public ShoppingCategory(){
         super();
@@ -19,6 +20,13 @@ public class ShoppingCategory implements Serializable {
         super();
         this.Name = title;
     }    
+    
+    public Boolean getBottom() {
+    	return bottom;
+    }
+    public void setBottom(boolean bottom) {
+    	this.bottom = bottom;
+    }
     
     public String getName() {
 		return Name;
@@ -46,6 +54,7 @@ public class ShoppingCategory implements Serializable {
 	
 	public void addIngredient(Ingredient ingredient){
 		ingredientList.add(ingredient);
+		DataSingleton.getInstance().checkGroupToTop(ingredient);
 	}
 	
 	public void removeIngredient(Ingredient ingredient) {

@@ -64,7 +64,9 @@ public class ListAddDialogFragment extends DialogFragment {
 				ArrayList<ShoppingCategory> sc = DataSingleton.getInstance().getUser().getShoppingList();
 				for (ShoppingCategory c : sc) {
 					if (s.getSelectedItem().toString().equals(c.getName())) {
-						c.addIngredient(new Ingredient(et.getText() + ""));
+						Ingredient i = new Ingredient(et.getText() + "");
+						i.setCategory(c.getName());
+						c.addIngredient(i);
 					}
 				}
 
