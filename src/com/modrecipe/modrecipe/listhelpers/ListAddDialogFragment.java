@@ -67,6 +67,7 @@ public class ListAddDialogFragment extends DialogFragment {
 						Ingredient i = new Ingredient(et.getText() + "");
 						i.setCategory(c.getName());
 						c.addIngredient(i);
+						DataSingleton.getInstance().checkGroupToTop(i); // TODO fix up? 
 					}
 				}
 

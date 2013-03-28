@@ -54,7 +54,6 @@ public class ShoppingCategory implements Serializable {
 	
 	public void addIngredient(Ingredient ingredient){
 		ingredientList.add(ingredient);
-		DataSingleton.getInstance().checkGroupToTop(ingredient);
 	}
 	
 	public void removeIngredient(Ingredient ingredient) {
