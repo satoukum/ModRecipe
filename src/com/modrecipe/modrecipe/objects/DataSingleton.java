@@ -1,7 +1,11 @@
 package com.modrecipe.modrecipe.objects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
+
+import android.widget.ArrayAdapter;
 
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.listhelpers.ListExpandableListAdapter;
@@ -12,9 +16,11 @@ public class DataSingleton {
 	private static DataSingleton instance = null; 
 	
 	public static User user = new User();
+	public static HashMap<java.util.UUID, com.modrecipe.modrecipe.objects.Recipe> recipes = new HashMap<java.util.UUID, com.modrecipe.modrecipe.objects.Recipe>();
 	
 	protected DataSingleton() { 
 		// Exists only to defeat instantiation. 
+		 // TODO fix up; // is this the right place?
 	}
 	
 	public static DataSingleton getInstance() { 
@@ -23,6 +29,144 @@ public class DataSingleton {
 			user = setUser(); // TODO fix up
 		} 
 		return instance; 
+	}
+	
+	/**
+	 * Holds all the recipes
+	 */
+	public static void setRecipes() {
+		
+		recipes = new HashMap<java.util.UUID, com.modrecipe.modrecipe.objects.Recipe>();
+		
+		Recipe r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("c4a32e87-f664-439a-a6f9-da3e4af81f39"));
+		r.setImageResource(R.drawable.recipe_broccolichickendivan);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients1());
+		r.setName("Broccoli Chicken Divan");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f"));
+		r.setImageResource(R.drawable.recipe_sweetandsourmeatballs);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients2());
+		r.setName("Sweet and Sour Meatballs");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("e7a004cf-a110-4652-9dd2-ac2cea285feb"));
+		r.setImageResource(R.drawable.recipe_easychickenpotpie);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients3());
+		r.setName("Easy Chicken Pot Pie");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("968e212f-a7e4-4fa6-98b8-dece3bcf1eda"));
+		r.setImageResource(R.drawable.recipe_sweetandsourchicken);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients6());
+		r.setName("Sweet and Sour Chicken");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		// HASHED
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f35"));
+		r.setImageResource(R.drawable.recipe2);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients3());
+		r.setName("Chicken Pot Pie Bites");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f34"));
+		r.setImageResource(R.drawable.recipe6);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients3());
+		r.setName("Lentil Soup");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f33"));
+		r.setImageResource(R.drawable.recipe3);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients3());
+		r.setName("Creamy Braised Chicken with Pappardelle");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f32"));
+		r.setImageResource(R.drawable.recipe4);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients3());
+		r.setName("Cowboy Cookies");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f31"));
+		r.setImageResource(R.drawable.recipe5);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients3());
+		r.setName("Triple Decker Peaut Butter Brownies");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+		
+		recipes.put(r.getUUID(), r);
+		
+		r = new Recipe();
+		r.setUUID(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f30"));
+		r.setImageResource(R.drawable.recipe1);
+		r.setDirectionsList(setFakeDirections1());
+		r.setIngredientList(setFakeIngredients3());
+		r.setName("Cappuccino-Chocolate Cupcakes");
+		r.setReadyInHours(1);
+		r.setReadyInMinutes(30);
+		r.setServings(4);
+
+		recipes.put(r.getUUID(), r);
+		
+		
+	}
+	/**
+	public void setRecipes(User user){
+		this.user = user;
+	}*/
+	public HashMap<java.util.UUID, com.modrecipe.modrecipe.objects.Recipe> getRecipes(){
+		return recipes;
 	}
 	
 	// On List Section Fragment, This is the Expandable List Adapter
@@ -43,6 +187,22 @@ public class DataSingleton {
 		this.ExpMealAdapter = ExpMealAdapter;
 	}	
 
+	// Meal Section Fragment -> Add Meal -> from Liked Meals -> AddMealActivity adapter
+	private ArrayAdapter<Recipe> FLMAdapter = null;
+	public ArrayAdapter<Recipe> getFromLikedMealsAdapter() {
+		return FLMAdapter;
+	}
+	public void setFromLikedMealsAdapter(ArrayAdapter<Recipe> FLMAdapter) {
+		this.FLMAdapter = FLMAdapter;
+	}
+	// Meal Section Fragment -> Add Meal -> from Pinned Meals -> AddMealActivity adapter
+	private ArrayAdapter<Recipe> FPMAdapter = null;
+	public ArrayAdapter<Recipe> getFromPinnedMealsAdapter() {
+		return FPMAdapter;
+	}
+	public void setFromPinnedMealsAdapter(ArrayAdapter<Recipe> FPMAdapter) {
+		this.FPMAdapter = FPMAdapter;
+	}	
 	
 	public void setUser(User user){
 		this.user = user;
@@ -52,6 +212,9 @@ public class DataSingleton {
 	}
 	
 	public static User setUser() {
+		
+		// Recipes database
+		setRecipes(); // TODO
 		
 	    // SET UP SINGLETON
 	    User testUser = new User();
@@ -65,53 +228,16 @@ public class DataSingleton {
 
 	    testUser.setPinnedRecipesList(null); //TODO
 	    testUser.setFavoriteRecipesList(null); //TODO
-	    setShoppingList();        
-	    testUser.setMealRecipesList(setMeals()); 
-	    testUser.setShoppingList(shoppingList);
+	    testUser.setShoppingList();
+	    testUser.setDefaultMeals();
+	    testUser.setDefaultLikedMeals();
+	    testUser.setDefaultPinnedMeals();
+	    testUser.setPastRecipes();
 	    
 	    return testUser;
 	}
 
-private static ArrayList<ShoppingCategory> shoppingList = new ArrayList<ShoppingCategory>();
-public static void setShoppingList() {
-	ShoppingCategory sc = new ShoppingCategory("FRUITS & VEGETABLES");
-	sc.setNumber(1);
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("DAIRY, EGGS, & CHEESE");
-	sc.setNumber(2);
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("SPICES & BAKING");
-	sc.setNumber(3);
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("CONDIMENTS");
-	sc.setNumber(4);
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("MEAT & SEAFOOD");
-	sc.setNumber(5);
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("CANNED GOODS & SOUPS");
-	sc.setNumber(6);
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("FROZEN ITEMS");
-	sc.setNumber(7);	
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("OTHER");
-	sc.setNumber(8);
-	shoppingList.add(sc);
-	
-	sc = new ShoppingCategory("REGULAR ITEMS");
-	sc.setNumber(9);
-	sc.addIngredient(new Ingredient("1 gal. Milk")); // TODO allow user to pick...	
-	shoppingList.add(sc);
-	
-}
+
     
 private static ArrayList<String> fakeDirections = new ArrayList<String>();
 private static ArrayList<String> setFakeDirections1() {
@@ -144,14 +270,6 @@ private static ArrayList<Ingredient> setFakeIngredients1() {
 	fakeIngredients.add(i);
 	i = new Ingredient("3 Chicken Breasts"); i.setCategory("MEAT & SEAFOOD");
 	fakeIngredients.add(i);	
-	
-	for (Ingredient ingre : fakeIngredients) {
-		for (ShoppingCategory shopcat : shoppingList) {
-			if (shopcat.getName().equals(ingre.getCategory())) {
-				shopcat.addIngredient(ingre);
-			}
-		}    		
-	}
 	
 	return fakeIngredients;
 }
@@ -188,14 +306,6 @@ private static ArrayList<Ingredient> setFakeIngredients2() {
 	i = new Ingredient("8 oz. Mandarin Oranges"); i.setCategory("CANNED GOODS & SOUPS");
 	fakeIngredients.add(i);
 	
-	for (Ingredient ingre : fakeIngredients) {    		
-		for (ShoppingCategory shopcat : shoppingList) {
-			if (shopcat.getName().equals(ingre.getCategory())) {
-				shopcat.addIngredient(ingre);
-			}
-		}    		
-	}
-	
 	return fakeIngredients;
 }
 
@@ -216,14 +326,6 @@ private static ArrayList<Ingredient> setFakeIngredients3() {
 	fakeIngredients.add(i);
 	i = new Ingredient("2 Chicken Breasts"); i.setCategory("MEAT & SEAFOOD");
 	fakeIngredients.add(i);	
-	
-	for (Ingredient ingre : fakeIngredients) {    		
-		for (ShoppingCategory shopcat : shoppingList) {
-			if (shopcat.getName().equals(ingre.getCategory())) {
-				shopcat.addIngredient(ingre);
-			}
-		}    		
-	}
 	
 	return fakeIngredients;
 }
@@ -247,94 +349,9 @@ private static ArrayList<Ingredient> setFakeIngredients6() {
 	fakeIngredients.add(i);
 	i = new Ingredient("2 Chicken Breasts"); i.setCategory("MEAT & SEAFOOD");
 	fakeIngredients.add(i);	
-	
-	for (Ingredient ingre : fakeIngredients) {    		
-		for (ShoppingCategory shopcat : shoppingList) {
-			if (shopcat.getName().equals(ingre.getCategory())) {
-				shopcat.addIngredient(ingre);
-			}
-		}    		
-	}
-	
+		
 	return fakeIngredients;
 }
 
-
-private static ArrayList setMeals() {
-	ArrayList<Recipe> meals = new ArrayList<Recipe>();
-	
-	Recipe r = new Recipe();
-	r.setUUID(java.util.UUID.fromString("c4a32e87-f664-439a-a6f9-da3e4af81f39"));
-	r.setImageResource(R.drawable.recipe_broccolichickendivan);
-	r.setDirectionsList(setFakeDirections1());
-	r.setIngredientList(setFakeIngredients1());
-	r.setName("Broccoli Chicken Divan");
-	r.setReadyInHours(1);
-	r.setReadyInMinutes(30);
-	r.setServings(4);
-	
-	meals.add(r);
-	
-	r = new Recipe();
-	r.setUUID(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f"));
-	r.setImageResource(R.drawable.recipe_sweetandsourmeatballs);
-	r.setDirectionsList(setFakeDirections1());
-	r.setIngredientList(setFakeIngredients2());
-	r.setName("Sweet and Sour Meatballs");
-	r.setReadyInHours(1);
-	r.setReadyInMinutes(30);
-	r.setServings(4);
-	
-	meals.add(r);
-	
-	r = new Recipe();
-	r.setUUID(java.util.UUID.fromString("e7a004cf-a110-4652-9dd2-ac2cea285feb"));
-	r.setImageResource(R.drawable.recipe_easychickenpotpie);
-	r.setDirectionsList(setFakeDirections1());
-	r.setIngredientList(setFakeIngredients3());
-	r.setName("Easy Chicken Pot Pie");
-	r.setReadyInHours(1);
-	r.setReadyInMinutes(30);
-	r.setServings(4);
-	
-	meals.add(r);
-/**
-	r = new Recipe();
-	r.setUUID(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f"));
-	r.setDirectionsList(setFakeDirections1());
-	r.setIngredientList(setFakeIngredients1());
-	r.setName("General Tso's Chicken");
-	r.setReadyInHours(1);
-	r.setReadyInMinutes(30);
-	r.setServings(4);
-	
-	meals.add(r);
-
-	r = new Recipe();
-	r.setUUID(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f"));
-	r.setDirectionsList(setFakeDirections1());
-	r.setIngredientList(setFakeIngredients1());
-	r.setName("BBQ Chicken Pizza");
-	r.setReadyInHours(1);
-	r.setReadyInMinutes(30);
-	r.setServings(4);
-	
-	meals.add(r);
-*/    	
-	r = new Recipe();
-	r.setUUID(java.util.UUID.fromString("968e212f-a7e4-4fa6-98b8-dece3bcf1eda"));
-	r.setImageResource(R.drawable.recipe_sweetandsourchicken);
-	r.setDirectionsList(setFakeDirections1());
-	r.setIngredientList(setFakeIngredients6());
-	r.setName("Sweet and Sour Chicken");
-	r.setReadyInHours(1);
-	r.setReadyInMinutes(30);
-	r.setServings(4);
-	
-	meals.add(r);
-    
-    return meals;    	
-	
-}
 	
 }

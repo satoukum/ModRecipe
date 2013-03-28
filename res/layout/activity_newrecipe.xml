@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/red"
-                android:text="+@string/NewRecipe_Name"
+                android:text="@string/NewRecipe_Name"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
             
@@ -43,7 +43,7 @@
                 android:minLines="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Name_Hint"
+                android:hint="@string/NewRecipe_Name_Hint"
                 android:ems="10"
                 android:inputType="textMultiLine" />
             
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/red"
-                android:text="+@string/NewRecipe_Ingredients"
+                android:text="@string/NewRecipe_Ingredients"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
 
@@ -72,25 +72,25 @@
                 android:id="@+id/editText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Ingredients_Hint1"
+                android:hint="@string/NewRecipe_Ingredients_Hint1"
                 android:ems="10" />
             <EditText
                 android:id="@+id/editText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Ingredients_Hint2"
+                android:hint="@string/NewRecipe_Ingredients_Hint2"
                 android:ems="10" />
             <EditText
                 android:id="@+id/editText3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Ingredients_Hint3"
+                android:hint="@string/NewRecipe_Ingredients_Hint3"
                 android:ems="10" />
             <EditText
                 android:id="@+id/editText4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Ingredients_Hint4"
+                android:hint="@string/NewRecipe_Ingredients_Hint4"
                 android:ems="10" />
 
             <TextView
@@ -98,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/red"
-                android:text="+@string/NewRecipe_Directions"
+                android:text="@string/NewRecipe_Directions"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
 
@@ -106,19 +106,19 @@
                 android:id="@+id/editText5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Directions_Hint1"
+                android:hint="@string/NewRecipe_Directions_Hint1"
                 android:ems="10" />
             <EditText
                 android:id="@+id/editText6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Directions_Hint2"
+                android:hint="@string/NewRecipe_Directions_Hint2"
                 android:ems="10" />
             <EditText
                 android:id="@+id/editText7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Directions_Hint3"
+                android:hint="@string/NewRecipe_Directions_Hint3"
                 android:ems="10" />
 
             <TextView
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/red"
-                android:text="+@string/NewRecipe_PrepareTime"
+                android:text="@string/NewRecipe_PrepareTime"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
 
@@ -135,7 +135,7 @@
                 android:minLines="4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_PrepareTime_Hint"
+                android:hint="@string/NewRecipe_PrepareTime_Hint"
                 android:ems="10"
                 android:inputType="textMultiLine" >
             </EditText>               
@@ -145,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:background="@color/red"
-                android:text="+@string/NewRecipe_Servings"
+                android:text="@string/NewRecipe_Servings"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
 
@@ -154,7 +154,7 @@
                 android:minLines="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="+@string/NewRecipe_Servings_Hint"
+                android:hint="@string/NewRecipe_Servings_Hint"
                 android:ems="10"
                 android:inputType="textMultiLine"
                 android:paddingBottom="50dp" >

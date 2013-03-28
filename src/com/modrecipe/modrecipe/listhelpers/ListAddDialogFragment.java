@@ -40,7 +40,7 @@ public class ListAddDialogFragment extends DialogFragment {
 		
 		//Spinner
 		String array_spinner[];
-		array_spinner=new String[8];
+		array_spinner=new String[7]; //8
 		array_spinner[0]="OTHER";		
 		array_spinner[1]="FRUITS & VEGETABLES";
 		array_spinner[2]="DAIRY, EGGS, & CHEESE";
@@ -48,7 +48,7 @@ public class ListAddDialogFragment extends DialogFragment {
 		array_spinner[4]="MEAT & SEAFOOD";
 		array_spinner[5]="CANNED GOODS & SOUPS";
 		array_spinner[6]="FROZEN ITEMS";
-		array_spinner[7]="REGULAR ITEMS";
+		//array_spinner[7]="REGULAR ITEMS";
 		final Spinner s = (Spinner) v.findViewById(R.id.Spinner);
 		ArrayAdapter adapter = new ArrayAdapter(v.getContext(),
 		android.R.layout.simple_spinner_item, array_spinner);

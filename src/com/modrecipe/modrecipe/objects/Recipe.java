@@ -24,14 +24,41 @@ public class Recipe implements Serializable {
 	private int ReadyInMinutes;
 	private double Servings;
 	private int imageResource;
-	//private rating
 	
 	public Recipe() {
 		//do nothing
 	}
 	
+	public Recipe(String name, int imageResource, UUID UUID) {
+		this.Name = name;
+		this.imageResource = imageResource;
+		this.UUID = UUID;
+	}
+	
 	public Recipe(String string) {
 		this.Name = string;
+	}
+	
+	private boolean isHarted = false;
+	public void setHarted(boolean isHarted) {
+		this.isHarted = isHarted;
+	}
+	public boolean getHarted() {
+		return isHarted;
+	}
+	private boolean isPinned = false;
+	public void setPinned(boolean isPinned) {
+		this.isPinned = isPinned;
+	}
+	public boolean getPinned() {
+		return isPinned;
+	}
+	private boolean isPlanned = false;
+	public void setPlanned(boolean isPlanned) {
+		this.isPlanned = isPlanned;
+	}
+	public boolean getPlanned() {
+		return isPlanned;
 	}
 
 	public String getName() {

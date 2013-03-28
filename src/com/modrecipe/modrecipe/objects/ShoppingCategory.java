@@ -48,6 +48,10 @@ public class ShoppingCategory implements Serializable {
 		ingredientList.add(ingredient);
 	}
 	
+	public void removeIngredient(Ingredient ingredient) {
+		ingredientList.remove(ingredient);
+	}
+	
 	public String toString() {
 		return getName();
 	}

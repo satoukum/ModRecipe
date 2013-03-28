@@ -29,6 +29,7 @@ public class ExpandableHeightGridView extends GridView {
     @Override
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // HACK! TAKE THAT ANDROID!
+    	// http://stackoverflow.com/questions/4523609/grid-of-images-inside-scrollview/4536955#4536955
         if (isExpanded()) {
             // Calculate entire height by providing a very large height hint.
             // But do not use the highest 2 bits of this integer; those are

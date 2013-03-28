@@ -79,6 +79,9 @@ public class ListClearDialogFragment extends DialogFragment {
 				DataSingleton.getInstance().getListExpAdapter().notifyDataSetChanged();
 				
 				ArrayList<Recipe> rl = DataSingleton.getInstance().getUser().getMealRecipesList();
+				for (Recipe r : rl) {
+					r.setPlanned(false);
+				}
 				rl.clear();
 
 				DataSingleton.getInstance().getMealExpAdapter().notifyDataSetChanged();

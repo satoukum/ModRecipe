@@ -47,6 +47,9 @@ public class MealClearDialogFragment extends DialogFragment {
 				DataSingleton.getInstance().getListExpAdapter().notifyDataSetChanged();
 				
 				ArrayList<Recipe> rl = DataSingleton.getInstance().getUser().getMealRecipesList();
+				for (Recipe r : rl) {
+					r.setPlanned(false);
+				}
 				rl.clear();
 
 				DataSingleton.getInstance().getMealExpAdapter().notifyDataSetChanged();
@@ -63,6 +66,9 @@ public class MealClearDialogFragment extends DialogFragment {
 			public void onClick(View arg0) {
 				// Clear Some
 				ArrayList<Recipe> rl = DataSingleton.getInstance().getUser().getMealRecipesList();
+				for (Recipe r : rl) {
+					r.setPlanned(false);
+				}
 				rl.clear();
 
 				DataSingleton.getInstance().getMealExpAdapter().notifyDataSetChanged();

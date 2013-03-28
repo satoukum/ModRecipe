@@ -112,6 +112,8 @@ public class MealExpandableListAdapter extends BaseExpandableListAdapter {
 				RecipeActivity.class);
 				
             	childActivityIntent.putExtra("recipe_imgsrc", group.getImageResource());
+            	childActivityIntent.putExtra("recipe_name", group.getName());
+            	childActivityIntent.putExtra("recipe_uuid", group.getUUID().toString());
             	childActivityIntent.putExtra("allowpin", "true");
             	v.getContext().startActivity(childActivityIntent);
             }

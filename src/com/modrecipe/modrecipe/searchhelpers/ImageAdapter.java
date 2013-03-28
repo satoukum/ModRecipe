@@ -1,6 +1,9 @@
 package com.modrecipe.modrecipe.searchhelpers;
 
 import com.modrecipe.modrecipe.R;
+import com.modrecipe.modrecipe.objects.DataSingleton;
+import com.modrecipe.modrecipe.objects.Recipe;
+
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.support.v4.app.Fragment;
@@ -23,12 +26,12 @@ public class ImageAdapter extends BaseAdapter {
         return mThumbIds.length;
     }
 
-    public Object getItem(int position) {
-        return null;
+    public Recipe getItem(int position) {
+        return mThumbIds[position];
     }
 
     public long getItemId(int position) {
-        return mThumbIds[position];
+        return mThumbIds[position].getImageResource();
     }
 
     // create a new ImageView for each item referenced by the Adapter
@@ -43,17 +46,42 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
+        imageView.setImageResource(mThumbIds[position].getImageResource());
         return imageView;
     }
 
     // references to our images
-    private Integer[] mThumbIds = {
+    private Recipe[] mThumbIds = {
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f35")),
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f34")), 
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f33")),
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f32")), 
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f31")),
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f30")),     	  
+    		DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("c4a32e87-f664-439a-a6f9-da3e4af81f39")),
+    		DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f")), 
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("e7a004cf-a110-4652-9dd2-ac2cea285feb")),
+    	    DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString("968e212f-a7e4-4fa6-98b8-dece3bcf1eda")), 
+    	    
+/**    	    		
+    		new Recipe("Chicken Pot Pie Bits", R.drawable.recipe2, java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f39")),
+    		new Recipe("Lentil Soup", R.drawable.recipe6, java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f39")),
+    		new Recipe("Broccoli Chicken Divan", R.drawable.recipe_broccolichickendivan, java.util.UUID.fromString("c4a32e87-f664-439a-a6f9-da3e4af81f39")),
+    		new Recipe("Sweet and Sour Meatballs", R.drawable.recipe_sweetandsourmeatballs, java.util.UUID.fromString("78c12828-55d6-48dd-9f5f-0af37865b33f")),
+    		new Recipe("Easy Chicken Pot Pie", R.drawable.recipe_easychickenpotpie, java.util.UUID.fromString("e7a004cf-a110-4652-9dd2-ac2cea285feb")),
+    		new Recipe("Sweet and Sour Chicken", R.drawable.recipe_sweetandsourchicken, java.util.UUID.fromString("968e212f-a7e4-4fa6-98b8-dece3bcf1eda")),
+    		new Recipe("Creamy Braised Chicken with Pappardelle", R.drawable.recipe3, java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f39")), 
+    		new Recipe("Cowboy Cookies", R.drawable.recipe4, java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f39")),
+    		new Recipe("Triple Decker Peaut Butter Brownies", R.drawable.recipe5, java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f39")), 
+    		new Recipe("Cappuccino-Chocolate Cupcakes", R.drawable.recipe1, java.util.UUID.fromString("c5a32e87-f664-439a-a6f9-da3e4af81f39")),
+*/    		
+/**    		
     		R.drawable.recipe2, R.drawable.recipe6,
             R.drawable.recipe_broccolichickendivan, R.drawable.recipe_sweetandsourmeatballs,
             R.drawable.recipe_easychickenpotpie, R.drawable.recipe_sweetandsourchicken,
             R.drawable.recipe3, R.drawable.recipe4,
             R.drawable.recipe5, R.drawable.recipe1
+*/            
     };
 	
 }

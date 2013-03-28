@@ -3,7 +3,14 @@ package com.modrecipe.modrecipe.main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 import com.modrecipe.modrecipe.Up.ActionBarCompat;
+import com.modrecipe.modrecipe.objects.DataSingleton;
+import com.modrecipe.modrecipe.objects.Ingredient;
+import com.modrecipe.modrecipe.objects.Recipe;
+import com.modrecipe.modrecipe.tabs.MealsSectionFragment;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -26,6 +33,7 @@ import com.modrecipe.modrecipe.R;
 
 public class RecipeActivity extends Activity {
     int mNum;
+	Recipe r = new Recipe();
 
 
     /**
@@ -38,7 +46,11 @@ public class RecipeActivity extends Activity {
         ActionBarCompat.setDisplayHomeAsUpEnabled(this, true); // Back button up top?
         
         String allowpin = this.getIntent().getStringExtra("allowpin");
-
+        
+        // Default Recipe?
+        String UUID = this.getIntent().getStringExtra("recipe_uuid");        
+    	r = DataSingleton.getInstance().getRecipes().get(java.util.UUID.fromString(UUID));
+        
         //TODO make less hacky // READ ONLY
         if (allowpin.equals("false")) {
             setContentView(R.layout.activity_recipe_nopin);
@@ -46,10 +58,10 @@ public class RecipeActivity extends Activity {
         	setContentView(R.layout.activity_recipe_pin);
         	setBottomBarListeners();	
         }
-        
-        //System.out.println("position: " + position);
-        
+
         defaultRecipie();
+
+        //System.out.println("position: " + position);
         
     }
     
@@ -65,51 +77,113 @@ public class RecipeActivity extends Activity {
     public void setBottomBarListeners() {
     	// Listeners of bottom bar TODO fix up
     	final ImageView likeImgView = (ImageView) this.findViewById(R.id.heartBtn);
-    	likeImgView.setTag("unchecked");
+    	
+    	if (!r.getHarted())
+    		likeImgView.setTag("unchecked");
+    	else {
+    		likeImgView.setTag("checked");
+    		likeImgView.setImageResource(R.drawable.icon_heart_red);
+    	}
+    		
     	likeImgView.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				if (likeImgView.getTag().equals("unchecked")) {
-					likeImgView.setImageResource(R.drawable.icon_heart);
-					likeImgView.setTag("checked");
-				} else {
+					
+					// change image to checked
 					likeImgView.setImageResource(R.drawable.icon_heart_red);
+					likeImgView.setTag("checked");
+					r.setHarted(true);
+					
+					// add to hearted items
+					DataSingleton.getInstance().getUser().getFavoriteRecipesList().add(r);
+					if (DataSingleton.getInstance().getFromLikedMealsAdapter() != null) {
+						DataSingleton.getInstance().getFromLikedMealsAdapter().notifyDataSetChanged();
+					}
+					
+				} else {
+					likeImgView.setImageResource(R.drawable.icon_heart);
 					likeImgView.setTag("unchecked");
+					r.setHarted(false);
+					
+					// remove from hearted items
+					DataSingleton.getInstance().getUser().getFavoriteRecipesList().remove(r);
+					if (DataSingleton.getInstance().getFromLikedMealsAdapter() != null) {
+						DataSingleton.getInstance().getFromLikedMealsAdapter().notifyDataSetChanged();
+					}
 				}
 			}
         	
         });
     	
     	final ImageView pinImgView = (ImageView) this.findViewById(R.id.pinBtn);
-    	pinImgView.setTag("unchecked");
+    	
+    	if (!r.getPinned())
+    		pinImgView.setTag("unchecked");
+    	else {
+    		pinImgView.setTag("checked");
+    		pinImgView.setImageResource(R.drawable.icon_pin_red);
+    	}
+    	
     	pinImgView.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				if (pinImgView.getTag().equals("unchecked")) {
-					pinImgView.setImageResource(R.drawable.icon_pin);
-					pinImgView.setTag("checked");
-				} else {
 					pinImgView.setImageResource(R.drawable.icon_pin_red);
+					pinImgView.setTag("checked");
+					r.setPinned(true);
+					
+					DataSingleton.getInstance().getUser().getPinnedRecipesList().add(r);
+					if (DataSingleton.getInstance().getFromPinnedMealsAdapter() != null) {
+						DataSingleton.getInstance().getFromPinnedMealsAdapter().notifyDataSetChanged();
+					}
+					
+				} else {
+					pinImgView.setImageResource(R.drawable.icon_pin);
 					pinImgView.setTag("unchecked");
+					r.setPinned(false);
+					
+					DataSingleton.getInstance().getUser().getPinnedRecipesList().remove(r);
+					if (DataSingleton.getInstance().getFromPinnedMealsAdapter() != null) {
+						DataSingleton.getInstance().getFromPinnedMealsAdapter().notifyDataSetChanged();
+					}
 				}
 			}
     		
     	});
     	
     	final ImageView mealImgView = (ImageView) this.findViewById(R.id.mealBtn);
-    	mealImgView.setTag("unchecked");
+    	
+    	if (!r.getPlanned())
+    		mealImgView.setTag("unchecked");
+    	else {
+    		mealImgView.setTag("checked");
+    		mealImgView.setImageResource(R.drawable.icon_meal_red);
+    	}
+    	
     	mealImgView.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				if (mealImgView.getTag().equals("unchecked")) {
-					mealImgView.setImageResource(R.drawable.icon_meal);
-					mealImgView.setTag("checked");
-				} else {
 					mealImgView.setImageResource(R.drawable.icon_meal_red);
+					mealImgView.setTag("checked");
+					r.setPlanned(true);
+					
+					//DataSingleton.getInstance().getUser().getMealRecipesList().add(r);
+					DataSingleton.getInstance().getUser().addToMeals(r.getUUID());
+					DataSingleton.getInstance().getMealExpAdapter().notifyDataSetChanged();
+					
+				} else {
+					mealImgView.setImageResource(R.drawable.icon_meal);
 					mealImgView.setTag("unchecked");
+					r.setPlanned(false);
+
+					//DataSingleton.getInstance().getUser().getMealRecipesList().remove(r);
+					DataSingleton.getInstance().getUser().removeFromMeals(r.getUUID());
+					DataSingleton.getInstance().getMealExpAdapter().notifyDataSetChanged();
 				}
 			}
     		
@@ -124,6 +198,9 @@ public class RecipeActivity extends Activity {
 				if (modImgView.getTag().equals("unchecked")) {
 					modImgView.setImageResource(R.drawable.icon_edit);
 					modImgView.setTag("checked");
+					
+					//TODO edit recipes...
+					
 				} else {
 					modImgView.setImageResource(R.drawable.icon_edit_red);
 					modImgView.setTag("unchecked");
@@ -144,7 +221,6 @@ public class RecipeActivity extends Activity {
 	TextView servings;
 	TextView reviews;
 	
-    
     public void defaultRecipie() {
     	
     	//recipiename = (TextView) findViewById(R.id.textView1);
@@ -154,16 +230,19 @@ public class RecipeActivity extends Activity {
         directions = (TextView) findViewById(R.id.textView9);
         nutrition = (TextView) findViewById(R.id.textView10);
         reviews = (TextView) findViewById(R.id.textView11);
-    	
-        // TODO fix up... recipie_name
-        //recipiename.setText("" + getIntent().getExtras().get("recipie_name"));//"Sweet and Sour Meatballs");
-        long imgResource = this.getIntent().getIntExtra("recipe_imgsrc", -1);
-        recipeimg.setImageResource((int) imgResource);
-        System.out.println("imgResource: " + imgResource);
         
-        servings.setText("\n" +
+    	recipeimg.setImageResource(r.getImageResource());
+            	
+    	servings.setText("\n" +
         		"Ready in 1 Hour and 10 minutes, Servings: 8 \n");
+    	
+    	String ingredientsString = "\n";
+    	for (Ingredient ingre : r.getIngredientList()) {
+    		ingredientsString += ingre.toString() + "\n";
+    	}
+    	ingredients.setText(ingredientsString);
         
+/**        
         ingredients.setText("\n" +
         		"1 lb. Ground Beef \n" +
         		"1 Egg \n" +
@@ -179,7 +258,7 @@ public class RecipeActivity extends Activity {
         		"3 T. Vinegar \n" +
         		"15 oz. can Pineapple Chunks \n" +
         		"8 oz. Mandarin Oranges \n");
-        
+*/        
         directions.setText("\n" +
         		"1. Combine rice with 1 1/2 c. water and cook for 20 minutes. \n\n" +
         		"2. While rice is cooking, combine ground beef, egg, onion, bread crumbs, " +

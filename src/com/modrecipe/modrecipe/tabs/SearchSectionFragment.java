@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.modrecipe.modrecipe.R;
 import com.modrecipe.modrecipe.main.NewRecipeActivity;
 import com.modrecipe.modrecipe.main.RecipeActivity;
+import com.modrecipe.modrecipe.objects.Recipe;
 import com.modrecipe.modrecipe.searchhelpers.ImageAdapter;
 
 /**
@@ -37,10 +38,7 @@ public class SearchSectionFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-		rootView = inflater.inflate(R.layout.fragment_search, container, false);
-        //TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-        //dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-		
+		rootView = inflater.inflate(R.layout.fragment_search, container, false);		
 		rootView.findViewById(R.id.mainLayout).requestFocus();
 		
 		final GridView gridview = (GridView) rootView.findViewById(R.id.gridview);
@@ -49,12 +47,13 @@ public class SearchSectionFragment extends Fragment {
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				//Toast.makeText(SearchSectionFragment.getContext(), "" + position, Toast.LENGTH_SHORT).show();
 				
 				Intent childActivityIntent = new Intent(v.getContext(),
 						RecipeActivity.class);
 						
-				childActivityIntent.putExtra("recipe_imgsrc", (int) gridview.getAdapter().getItemId(position));
+				//childActivityIntent.putExtra("recipe_imgsrc", (int) gridview.getAdapter().getItemId(position));
+				childActivityIntent.putExtra("recipe_uuid", (String) ((Recipe)gridview.getAdapter().getItem(position)).getUUID().toString());
+				//childActivityIntent.putExtra("recipe_name", (String) ((Recipe)gridview.getAdapter().getItem(position)).getName());				
 				childActivityIntent.putExtra("allowpin", "true");
 				
 				v.getContext().startActivity(childActivityIntent);

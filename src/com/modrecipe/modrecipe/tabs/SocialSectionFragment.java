@@ -52,10 +52,8 @@ public class SocialSectionFragment extends Fragment {
 				v.getContext().startActivity(childActivityIntent);
 		        
 			}});
-	    
-		
-        return rootView;        
-        
+
+        return rootView;                
         }
 	
 	//TODO Gross, doesn't work...

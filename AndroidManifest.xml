@@ -35,6 +35,10 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                        android:value=".main.MainActivity" />
         </activity>
+        <activity android:name="com.modrecipe.modrecipe.main.AddMealActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value=".main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
